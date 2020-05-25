@@ -33,6 +33,7 @@ public class Test extends HttpServlet {
 		System.out.println("aaaaa");
 		System.out.println("hogehoge");
 		System.out.println("piyopiyo");
+		System.out.println("wata");
 
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
