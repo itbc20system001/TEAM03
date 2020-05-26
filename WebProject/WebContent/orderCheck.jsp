@@ -24,7 +24,11 @@
 
 <form method ="POST" action="orderComplete.jsp">
 <%-- for (型 i : ???[]) {--%>
+<<<<<<< HEAD
+	<img src="TapiocaBread" alt="タピオカドリンク・サーモンピンク味">
+=======
 	<img src="TapiocaDispair" alt="タピオカドリンク・サーモンピンク味">
+>>>>>>> refs/remotes/origin/master
 	<p>タピオカドリンク・サーモンピンク味【Mサイズ・マイルド、氷少、抹茶タピオカ、トッピング：生クリーム、鷹の爪】</p>
 	<p>￥620 × 3</p>
 	<input type="submit" name="cancel" value="取り消す">
