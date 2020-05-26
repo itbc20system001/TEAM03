@@ -8,10 +8,12 @@
 </head>
 <body>
 <h1>マイページ</h1>
-
-<input type="submit" name="ユーザー情報を変更"><br>
-<input type="submit" name="購入履歴の確認"><br>
-
+<form action="ユーザー情報変更ページへ" method="post">
+<input type="submit" value="ユーザー情報を変更"><br>
+</form>
+<form action="購入履歴画面へ" method="post">
+<input type="submit" value="購入履歴の確認"><br>
+</form>
 <h2>ユーザー情報</h2>
 ID：<br>
 姓：<br>
