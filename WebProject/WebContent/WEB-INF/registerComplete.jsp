@@ -7,13 +7,10 @@
 <title>Tappy</title>
 </head>
 <body>
-<h1>商品個別画面</h1>
+<h1>登録が完了しました</h1>
 
-商品名、画像、説明を出力
-
-<!-- item.javaへ値を投げる-->
-<form action="/tappy/Item" method="post">
-<input type="submit" value="この商品を選択">
+<!-- リレーを介してログイン画面へ飛ぶ -->
+<a href="/relay?action=login">ログイン
 </form>
 </body>
 </html>
