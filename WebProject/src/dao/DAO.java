@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public abstract class DAO<T> {
@@ -36,7 +35,7 @@ public abstract class DAO<T> {
 	public abstract T construct(Map<String, Object> record);
 
 	//createSqlStatementによって作られたSQL文（問い合わせ）を実行し結果を返す
-	public List<T> executeQuery(Function<Connection, PreparedStatement> createSqlStatement) {
+	public List<T> executeQuery(FunctionWithSQLException<Connection, PreparedStatement> createSqlStatement) {
 
 		try (Connection conn = DriverManager.getConnection(
 				JDBC_URL, DB_USER, DB_PASS)) {
@@ -72,7 +71,7 @@ public abstract class DAO<T> {
 	}
 
 	//createSqlStatementによって作られたSQL文（DBの変更）を実行し結果を返す
-	public boolean executeUpdate(Function<Connection, PreparedStatement> createSqlStatement) {
+	public boolean executeUpdate(FunctionWithSQLException<Connection, PreparedStatement> createSqlStatement) {
 
 		try (Connection conn = DriverManager.getConnection(
 				JDBC_URL, DB_USER, DB_PASS)) {
