@@ -9,7 +9,7 @@
 <body>
 ご注文が確定、完了いたしました。
 ご利用ありがとうございます。
-<form method="GET" action="index.jsp"><%--リレー.javaで遷移？ --%>
+<form method="GET" action="/tappy/relay?jump=top"><%--リレー.javaで遷移？ --%>
 <input type="submit" name="void" value="トップページに戻る">
 </form>
 </body>
