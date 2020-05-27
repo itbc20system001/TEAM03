@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class PuchaseHistory
  */
 @WebServlet("/PuchaseHistory")
-public class PuchaseHistory extends HttpServlet {
+public class PurchaseHistory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PuchaseHistory() {
+    public PurchaseHistory() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,7 +37,12 @@ public class PuchaseHistory extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		/*
+		 購入履歴を取得する処理
+		 注文するたびに更新されるので毎回呼び出す必要性あり？
+		 */
+		RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/purchaseHistory.jsp");
+		rdp.forward(request, response);
 	}
 
 }
