@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Customize
+ * Servlet implementation class OrderCheck
  */
-@WebServlet("/Customize")
-public class Customize extends HttpServlet {
+@WebServlet("/OrderCheck")
+public class OrderCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Customize() {
+    public OrderCheck() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,10 +38,13 @@ public class Customize extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		/*
-			DBからトッピングの内容を持ってきてスコープに保存する処理を書く
-			一度だけ動かせばそれで終わりかもしれない
+		 処理内容
+		 1．購入履歴からの場合はスコープから取得した
+		    情報をOrderCheck.jspに投げる
+		 2. customize.jspからの場合はスコープに格納されている
+		    情報を購入履歴のDBに保存してからOrderCheck.jspに投げる
 		 */
-		RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/customize.jsp");
+		RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/orderCheck.jsp");
 		rdp.forward(request, response);
 	}
 
