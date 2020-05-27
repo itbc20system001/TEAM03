@@ -1,12 +1,13 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class PurchaseHistory implements Serializable {
 	private int purchaseId; //購入ID
 	private int userId; //ユーザーID
 	private int item; //商品CD
-	private int purchaseDate; //購入日時
+	private Date  purchaseDate; //購入日時
 	private int purchaseQuantity; //購入個数
 	private int drinkSize; //ドリンクサイズ
 	private int drinkSugar; //ドリンク甘さ
@@ -18,7 +19,7 @@ public class PurchaseHistory implements Serializable {
 	public PurchaseHistory() {
 	}
 
-	public PurchaseHistory(int purchaseId, int userId, int item, int purchaseDate, int purchaseQuantity, int drinkSize,
+	public PurchaseHistory(int purchaseId, int userId, int item, Date purchaseDate, int purchaseQuantity, int drinkSize,
 			int drinkSugar, int iceAmount, int tapiokaKind, int tapiokaAmount, int topping) {
 		super();
 		this.purchaseId = purchaseId;
@@ -58,11 +59,11 @@ public class PurchaseHistory implements Serializable {
 		this.item = item;
 	}
 
-	public int getPurchaseDate() {
+	public Date getPurchaseDate() {
 		return purchaseDate;
 	}
 
-	public void setPurchaseDate(int purchaseDate) {
+	public void setPurchaseDate(Date purchaseDate) {
 		this.purchaseDate = purchaseDate;
 	}
 
