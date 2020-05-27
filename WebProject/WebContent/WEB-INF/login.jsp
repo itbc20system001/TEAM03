@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>ログイン</h1>
-<form method="post" action="/WebProject/">
+<form method="post" action="/tappy/Login">
 
   ユーザーID<br>
   <input type="text" name="user_id"><br>
