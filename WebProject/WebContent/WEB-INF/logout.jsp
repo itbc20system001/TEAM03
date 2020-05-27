@@ -9,7 +9,7 @@
 <body>
 
 <h1>ログアウトしました</h1>
-<a href="/WebProject/">トップに戻る</a>
+<a href="/tappy/">トップに戻る</a>
 
 </body>
 </html>

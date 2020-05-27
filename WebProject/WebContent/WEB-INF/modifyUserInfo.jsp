@@ -9,7 +9,7 @@
 <body>
 <h1>ユーザー情報の変更</h1>
 <!-- 各テキストフィールドには現在のユーザー情報をデフォルトで入れたい -->
-<form method="post" action="/WebProject/">
+<form method="post" action="/tappy/ModifyUserInfo">
   ユーザーID<br>
   <input type="text" name="user_id"><br>
   姓<br>
