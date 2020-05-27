@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class PurchaseHistory implements Serializable {
+public class PurchaseHistoryBean implements Serializable {
 	private int purchaseId; //購入ID
 	private int userId; //ユーザーID
 	private int item; //商品CD
@@ -16,10 +16,10 @@ public class PurchaseHistory implements Serializable {
 	private int tapiokaAmount; //タピオカ量
 	private int topping; //トッピング種類
 
-	public PurchaseHistory() {
+	public PurchaseHistoryBean() {
 	}
 
-	public PurchaseHistory(int purchaseId, int userId, int item, Date purchaseDate, int purchaseQuantity, int drinkSize,
+	public PurchaseHistoryBean(int purchaseId, int userId, int item, Date purchaseDate, int purchaseQuantity, int drinkSize,
 			int drinkSugar, int iceAmount, int tapiokaKind, int tapiokaAmount, int topping) {
 		super();
 		this.purchaseId = purchaseId;
