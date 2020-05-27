@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class MemberBeen implements Serializable {
+public class MemberBean implements Serializable {
 	private String userId; //ユーザーID
 	private String userLName; //姓
 	private String userFName; //名
@@ -12,10 +12,10 @@ public class MemberBeen implements Serializable {
 	private String tel; //電話番号
 	private String main; //メールアドレス
 
-	public MemberBeen() {
+	public MemberBean() {
 	}
 
-	public MemberBeen(String userId, String userLName, String userFName, String password, String prefecture,
+	public MemberBean(String userId, String userLName, String userFName, String password, String prefecture,
 			String address, String tel, String main) {
 		this.userId = userId;
 		this.userLName = userLName;

@@ -14,7 +14,7 @@
 <table border ="1">
 <tr><th>注文内容</th><th>再注文</th></tr>
 <tr><td>注文履歴データベースから表示</td>
-<td><form action="/WebProject/hogehoge" method="post">
+<td><form action="/WebProject/OrderCheck" method="post">
 <input type="submit" value="再注文">
 </form></td></tr>
 </table>
