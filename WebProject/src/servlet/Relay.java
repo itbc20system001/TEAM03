@@ -17,13 +17,25 @@ public class Relay extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		System.out.println("ddd");
+
 		if(request.getParameter("action").equals("menu")) {
-			
+
 			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/menu.jsp");
 			d.forward(request, response);
 		}
-		
+
+		if(request.getParameter("action").equals("userPage")) {
+
+			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/userPage.jsp");
+			d.forward(request, response);
+		}
+
+		if(request.getParameter("action").equals("login")) {
+
+			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/login.jsp");
+			d.forward(request, response);
+		}
+
 	}
 
 }
