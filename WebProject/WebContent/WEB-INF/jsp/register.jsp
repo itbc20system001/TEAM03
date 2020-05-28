@@ -9,6 +9,11 @@
 <body>
 <!-- ここにヘッダー？-->
 <h1>会員登録</h1>
+
+<!-- 会員登録に失敗したときに「失敗しました」メッセージを出したい -->
+<% if (request.getAttribute("loginFailed") != null){ %>
+ここにログインに失敗しました文字を入れる
+<%} %>
 <form action="/tappy/Register" method="post">
 ユーザーID：<input type="text" name="user_id"><br>
 姓：<input type="text" name="user_l_name"><br>
@@ -20,7 +25,7 @@
 メールアドレス：<input type="text" name="mail"><br>
 この内容で登録する<input type="submit" value="登録">
 
-<!-- 会員登録に失敗したときに「失敗しました」メッセージを出したい -->
+
 </form>
 
 </body>
