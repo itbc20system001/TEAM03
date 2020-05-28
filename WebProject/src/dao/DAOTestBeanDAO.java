@@ -9,7 +9,7 @@ public class DAOTestBeanDAO extends DAO<DAOTestBean> {
 
 
 	@Override
-	public DAOTestBean construct(Map<String, Object> record) {
+	protected DAOTestBean construct(Map<String, Object> record) {
 		// TODO 自動生成されたメソッド・スタブ
 		return new DAOTestBean(
 				(int)record.get("xxx"),
