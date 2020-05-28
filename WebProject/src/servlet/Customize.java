@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.CustomizeBean;
+import model.CustomizeLogic;
 
 /**
  * Servlet implementation class Customize
@@ -41,6 +46,21 @@ public class Customize extends HttpServlet {
 			DBからトッピングの内容を持ってきてスコープに保存する処理を書く
 			一度だけ動かせばそれで終わりかもしれない
 		 */
+		List<CustomizeBean> iceList = new ArrayList<>();
+		List<CustomizeBean> topiocaTypeList = new ArrayList<>();
+		List<CustomizeBean> topiocaAmountList = new ArrayList<>();
+		List<CustomizeBean> sugerList = new ArrayList<>();
+		List<CustomizeBean> drinkSizeList = new ArrayList<>();
+		List<CustomizeBean> toppingList = new ArrayList<>();
+		CustomizeLogic customizeLogic = new CustomizeLogic();
+		iceList = customizeLogic.makeCustomizeList("", "", "");
+		drinkSizeList = customizeLogic.makeCustomizeList("", "", "");
+		topiocaAmountList = customizeLogic.makeCustomizeList("", "", "");
+		topiocaTypeList = customizeLogic.makeCustomizeList("", "", "");
+		sugerList = customizeLogic.makeCustomizeList("", "", "");
+		toppingList = customizeLogic.makeCustomizeList("", "", "");
+
+
 		RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/customize.jsp");
 		rdp.forward(request, response);
 	}
