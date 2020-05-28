@@ -11,7 +11,7 @@
   <br> 画面左側はドリンクの画像で右側でトッピング選択するとかがいいかな？
   <br> 甘さ
   <br>
-  <form action="/WebProject/OrderCheck" method="post">
+  <form action="/Tappy/OrderCheck" method="post">
     <select name="sugger">
       <option value="">for文でデータベースからぶん回す！</option>
     </select> <br>氷の量<br> <select name="sugger">

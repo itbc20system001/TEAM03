@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%--@ page import="pinyapinya" --%>>
+    <%--@ page import="pinyapinya" --%>
     <%--
     型 変数 = (型) session.getAttribute("????????????????????????????????????")
     --%>
@@ -22,21 +22,27 @@
 <p>【合計値段を表示】</p>
 <br><p>以下、例</p><br>
 
-<form method ="POST" action="orderComplete.jsp">
 <%-- for (型 i : ???[]) {--%>
-<<<<<<< HEAD
-	<img src="TapiocaBread" alt="タピオカドリンク・サーモンピンク味">
-=======
-	<img src="TapiocaDispair" alt="タピオカドリンク・サーモンピンク味">
->>>>>>> refs/remotes/origin/master
-	<p>タピオカドリンク・サーモンピンク味【Mサイズ・マイルド、氷少、抹茶タピオカ、トッピング：生クリーム、鷹の爪】</p>
+
+	<img src="TapiocaBread.jpg" alt="タピオカドリンク・サーモンピンク味">
+
+	<p>タピオカドリンク・サーモンピンク味<br>【Mサイズ・マイルド、氷少、抹茶タピオカ、トッピング：生クリーム、鷹の爪】</p>
 	<p>￥620 × 3</p>
-	<input type="submit" name="cancel" value="取り消す">
-	<input type="submit" name="change" value="変更する">
+
+	<form method ="POST" action="orderCheck.jsp">
+	<br><input type="submit" name="cancel" value="取り消す"><%--スコープから取り除くメソッド --%>
+	</form>
+	<form method ="POST" action="orderCheck.jsp">
+	<br><input type="submit" name="change" value="変更する"><%--商品ページに飛ばす？スコープから指定のデータ列変更できるようにする --%>
+	</form>
 <%-- } --%>
 	<h4>合計金額：￥1,860</h4>
-<input type="submit" name="confirm" value="注文確定">
-<input type="submit" name="return" value="戻る">
+
+<form method ="GET" action="/tappy/relay?order=confirm">
+<br><input type="submit" name="confirm" value="注文確定"><%--relay.java に投げる？ --%>
+</form>
+<form method ="GET" action="/tappy/relay?order=return">
+<br><input type="submit" name="return" value="戻る">
 </form>
 </body>
 </html>
