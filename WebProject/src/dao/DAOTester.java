@@ -27,7 +27,7 @@ public class DAOTester {
 						+ ob.getPrefecture() + " "
 						+ ob.getAddress() + " "
 						+ ob.getTel() + " "
-						+ ob.getMain() + " ")
+						+ ob.getMail() + " ")
 				.forEach(System.out::println);
 
 		System.out.println();

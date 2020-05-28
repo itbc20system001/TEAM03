@@ -54,8 +54,10 @@ public class Login extends HttpServlet {
 			response.sendRedirect("/tappy/");
 		}
 		else {
-			//失敗したらもう一度ログイン画面にフォワード
+			//失敗したら・・・
+			//失敗フラグをリクエストスコープに入れる
 			request.setAttribute("loginFailed", true);
+			//再度ログイン画面にフォワード
 			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		}
 	}
