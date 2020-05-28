@@ -36,5 +36,33 @@ public class MemberDAO extends DAO<MemberBean> {
 		return members.isEmpty() ? null : members.get(0);
 
 	}
+	//会員情報を登録するメソッド
+	public boolean addUser(MemberBean mb) {
+
+		//ここにインサート文
+		boolean res = executeUpdate(conn -> {
+			String sql ="INSERT INTO member VALUES(?,?,?,?,?,?,?,?,)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			//INSERT文中の？に使用する値を設定しSQLを完成
+			pStmt.setString(1,mb.getUserId());
+			pStmt.setString(2,mb.getUserLName());
+			pStmt.setString(3,mb.getUserFName());
+			pStmt.setString(4,mb.getPassword());
+			pStmt.setString(5,mb.getPrefecture());
+			pStmt.setString(6,mb.getAddress());
+			pStmt.setString(7,mb.getTel());
+			pStmt.setString(8,mb.getMail());
+
+
+			return pStmt;
+		});
+
+
+
+		//成功判定を返す
+		return res;
+	}
+
 
 }

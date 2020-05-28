@@ -41,7 +41,7 @@ public class Register extends HttpServlet {
 		String tel = request.getParameter("tel");
 		String mail = request.getParameter("mail");
 
-		//MemberBeanに情報を詰める??コンストラクタで
+		//MemberBeanに受け取った情報を詰める
 		MemberBean mb = new MemberBean(userId, userLName, userFname, password, prefecture, address, tel, mail);
 
 		//RegisterLogic.javaのメソッドexecute（仮）を呼び出して、戻り値を受け取る
