@@ -5,14 +5,14 @@ import java.io.Serializable;
 
 public class ItemBean implements Serializable {
 	private String item; //商品名
-	private String itemPrice; //商品価格
+	private int itemPrice; //商品価格
 	private String itemText; //商品説明
 	private String itemImageUrl; //商品画像URL
 
 	public ItemBean() {
 	}
 
-	public ItemBean(String itemCd, String itemPrice, String itemText, String itemImageUrl) {
+	public ItemBean(String itemCd, int itemPrice, String itemText, String itemImageUrl) {
 		this.item = itemCd;
 		this.itemPrice = itemPrice;
 		this.itemText = itemText;
@@ -27,11 +27,11 @@ public class ItemBean implements Serializable {
 		this.item = itemCd;
 	}
 
-	public String getItemPrice() {
+	public int getItemPrice() {
 		return itemPrice;
 	}
 
-	public void setItemPrice(String itemPrice) {
+	public void setItemPrice(int itemPrice) {
 		this.itemPrice = itemPrice;
 	}
 
