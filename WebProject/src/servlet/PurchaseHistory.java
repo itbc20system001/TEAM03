@@ -52,7 +52,7 @@ public class PurchaseHistory extends HttpServlet {
 		HttpSession session = request.getSession();
 		List<PurchaseHistoryBean> historyList = new ArrayList<>();
 		PurchaseHistoryLogic phLogic = new PurchaseHistoryLogic();
-		historyList = phLogic.makeHistoryList();
+		historyList = phLogic.makeHistoryList(session);
 
 		session.setAttribute("PurchaseHistoryList", historyList);
 
