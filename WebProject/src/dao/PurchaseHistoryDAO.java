@@ -29,15 +29,13 @@ public class PurchaseHistoryDAO extends DAO<PurchaseHistoryBean> {
 	}
 
 	public List<PurchaseHistoryBean> findAll(){
-		return executeQuery( conn -> conn.prepareStatement("SELECT * FROM purchase_history") );
+
+		return new PurchaseHistoryDAO().executeQuery( conn -> conn.prepareStatement("SELECT * FROM ") );
 
 	}
+	public void creation(PurchaseHistoryBean ph) {//注文確定時、DBの履歴を更新
+		//セッションスコープからDBに移す
 
-	public void addTable(HttpSession session) {
-		executeQuery(conn -> {
-			PreparedStatement pStmt = conn.prepareStatement("INSERT INTO `purchase_history`(`user_id`, `item_cd`, `purchase_date`, `purchase_quantity`, `drink_size_cd`, `drink_sugar_cd`, `ice_amount_cd`, `tapioka_kind_cd`, `tapioka_amount_cd`, `topping_cd`) VALUES ("+session.getAttribute("user-id")+","+session.getAttribute("item_cd")+","+session.getAttribute("purchase_date")+","+session.getAttribute("purchase_quantity")+","+session.getAttribute("drink_size_cd")+","+session.getAttribute("drink_sugar_cd")+","+session.getAttribute("ice_amount_cd")+","+session.getAttribute("tapioka_kind_cd")+","+session.getAttribute("tapioka_amount_cd")+","+session.getAttribute("topping_cd"));
-			return pStmt;
-		});
 	}
 
 }

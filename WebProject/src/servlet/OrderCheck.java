@@ -33,8 +33,18 @@ public class OrderCheck extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String name = request.getParameter("name");
+		String fPath = "WEB-INF/jsp/orderCheck.jsp";
+		if(name==null) {
+
+		}else if("取り消す".equals(name)) {
+			System.out.println("取り消す");
+			fPath = "WEB-INF/jsp/orderCheck.jsp";
+		}else {
+
+		}
+		RequestDispatcher rdp = request.getRequestDispatcher(fPath);
+		rdp.forward(request, response);
 	}
 
 	/**
@@ -51,15 +61,26 @@ public class OrderCheck extends HttpServlet {
 		/*
 		 処理内容
 		 1．購入履歴からの場合はスコープから取得した
+
 		    情報をOrderCheck.jspに投げる
 		 */
 		if(a) {
 
 		}else{/*
+
 		 2. customize.jspからの場合はスコープに格納されている
-		    情報を購入履歴のDBに保存してからOrderCheck.jspに投げる
+		    情報を購入履歴のDBに保存してからorderCheck.jspに投げる
 		 */
+
+		if(request.getParameter("name").equals("history")) {
+			//HttpSession session = request.getSession();
+			//セッションスコープからインスタンス取得、p220から やり方が分からん・・・
+			//PurchaseHistoryBean ph =(PurchaseHistoryBean) session.getAttribute("")
 		}
+		if(request.getParameter("name").equals("customize")) {
+
+		}
+
 		RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/orderCheck.jsp");
 		rdp.forward(request, response);
 	}
