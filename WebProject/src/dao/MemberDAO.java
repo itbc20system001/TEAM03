@@ -12,19 +12,18 @@ public class MemberDAO extends DAO<MemberBean> {
 	protected MemberBean construct(Map<String, Object> record) {
 		// TODO 自動生成されたメソッド・スタブ
 		return new MemberBean(
-				(String)record.get("user_id"),
-				(String)record.get("user_l_name"),
-				(String)record.get("user_f_name"),
-				(String)record.get("password"),
-				(String)record.get("prefecture"),
-				(String)record.get("address"),
-				(String)record.get("tel"),
-				(String)record.get("mail")
-				);
+				(String) record.get("user_id"),
+				(String) record.get("user_l_name"),
+				(String) record.get("user_f_name"),
+				(String) record.get("password"),
+				(String) record.get("prefecture"),
+				(String) record.get("address"),
+				(String) record.get("tel"),
+				(String) record.get("mail"));
 	}
 
 	//ユーザーID、パスワードが等しいユーザーを探して返す。存在しなければnullを返す
-	public MemberBean find(String userId,String password) {
+	public MemberBean find(String userId, String password) {
 
 		List<MemberBean> members = executeQuery(conn -> {
 			PreparedStatement pStmt = conn.prepareStatement("SELECT * FROM member WHERE user_id = ? AND password = ?");
@@ -65,4 +64,44 @@ public class MemberDAO extends DAO<MemberBean> {
 	}
 
 
+	public boolean modifyMember(MemberBean oldMember,MemberBean newMember) {
+		//変更先のユーザーIDが衝突しているか判定
+		boolean isIdConflicted = ! executeQuery(conn -> {
+			PreparedStatement pStmt = conn.prepareStatement("SELECT * FROM member WHERE user_id = ?");
+			pStmt.setString(1, newMember.getUserId());
+			return pStmt;
+		}).isEmpty();
+
+		if(isIdConflicted) {
+			return false;
+
+		}else {
+			return executeUpdate(conn ->{
+				PreparedStatement pStmt = conn.prepareStatement("UPDATE member SET "
+						+ "user_id=?, "
+						+ "user_l_name=?, "
+						+ "user_f_name=?, "
+						+ "password=?, "
+						+ "prefecture=?, "
+						+ "address=?, "
+						+ "tel=?, "
+						+ "mail=? "
+						+ "WHERE user_id=?");
+				pStmt.setString(1, newMember.getUserId());
+				pStmt.setString(2, newMember.getUserLName());
+				pStmt.setString(3, newMember.getUserFName());
+				pStmt.setString(4, newMember.getPassword());
+				pStmt.setString(5, newMember.getPrefecture());
+				pStmt.setString(6, newMember.getAddress());
+				pStmt.setString(7, newMember.getTel());
+				pStmt.setString(8, newMember.getMail());
+
+				pStmt.setString(9, oldMember.getUserId());
+				return pStmt;
+			});
+
+
+
+		}
+	}
 }

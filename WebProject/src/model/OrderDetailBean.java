@@ -1,13 +1,9 @@
 package model;
 
-import java.io.Serializable;
-import java.util.Date;
+//注文内容（商品とカスタマイズの内容）を表すBean
+public class OrderDetailBean {
 
-public class PurchaseHistoryBean implements Serializable {
-	//private int purchaseId; //購入ID
-	private String userId; //ユーザーID
 	private int itemCd; //商品CD
-	private Date  purchaseDate; //購入日時
 	private int purchaseQuantity; //購入個数
 	private int drinkSize; //ドリンクサイズ
 	private int drinkSugar; //ドリンク甘さ
@@ -16,16 +12,10 @@ public class PurchaseHistoryBean implements Serializable {
 	private int tapiokaAmount; //タピオカ量
 	private int topping; //トッピング種類
 
-	public PurchaseHistoryBean() {
-	}
-
-	public PurchaseHistoryBean(/*int purchaseId */ String userId, int item, Date purchaseDate, int purchaseQuantity, int drinkSize,
-			int drinkSugar, int iceAmount, int tapiokaKind, int tapiokaAmount, int topping) {
+	public OrderDetailBean(int itemCd, int purchaseQuantity, int drinkSize, int drinkSugar, int iceAmount,
+			int tapiokaKind, int tapiokaAmount, int topping) {
 		super();
-		//this.purchaseId = purchaseId;
-		this.userId = userId;
-		this.itemCd = item;
-		this.purchaseDate = purchaseDate;
+		this.itemCd = itemCd;
 		this.purchaseQuantity = purchaseQuantity;
 		this.drinkSize = drinkSize;
 		this.drinkSugar = drinkSugar;
@@ -35,36 +25,12 @@ public class PurchaseHistoryBean implements Serializable {
 		this.topping = topping;
 	}
 
-/*	public int getPurchaseId() {
-		return purchaseId;
-	}
-
-	public void setPurchaseId(int purchaseId) {
-		this.purchaseId = purchaseId;
-	}*/
-
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	public int getItem() {
+	public int getItemCd() {
 		return itemCd;
 	}
 
-	public void setItem(int item) {
-		this.itemCd = item;
-	}
-
-	public Date getPurchaseDate() {
-		return purchaseDate;
-	}
-
-	public void setPurchaseDate(Date purchaseDate) {
-		this.purchaseDate = purchaseDate;
+	public void setItemCd(int itemCd) {
+		this.itemCd = itemCd;
 	}
 
 	public int getPurchaseQuantity() {
@@ -122,5 +88,4 @@ public class PurchaseHistoryBean implements Serializable {
 	public void setTopping(int topping) {
 		this.topping = topping;
 	}
-
 }

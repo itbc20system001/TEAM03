@@ -32,7 +32,7 @@ public class DAOTester {
 
 		System.out.println();
 
-		new PurchaseHistoryDAO().executeQuery(conn -> conn.prepareStatement("SELECT * FROM purchase_history"))
+		new PurchaseDAO().executeQuery(conn -> conn.prepareStatement("SELECT * FROM purchase_history"))
 				.stream()
 				.map(ob -> ob.getUserId() + " " +
 						ob.getItem() + " " +

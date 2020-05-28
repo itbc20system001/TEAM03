@@ -11,8 +11,9 @@
 <title>Tappy - ご注文内容確認</title>
 </head>
 <body>
-<h3>お客様がご注文された内容は以下の通りです。</h3>
-<h3>以下の内容でよろしければ【注文確定】のボタンを押してください。</h3>
+<h3>注文が新たに決定されました。</h3>
+<h3>以下の注文でよろしければ【注文確定】のボタン、</h3>
+<h3>追加でご注文される場合は【追加注文】のボタンを押してください。</h3>
 
 <p>【イメージ：セッションスコープに入れられた注文内容を引っ張ってくる】</p>
 <p>注文されたドリンクの分だけ配列が作られる？</p>
@@ -30,15 +31,15 @@
 	<p>￥620 × 3</p>
 
 	<form method ="GET" action="/tappy/OrderCheck">
-	<br><input type="submit" name="cancel" value="取り消す"><%--スコープから取り除くメソッド --%>
-	<br><input type="submit" name="change" value="変更する"><%--商品ページに飛ばす？スコープから指定のデータ列変更できるようにする --%>
+	<br><input type="submit" name="name" value="取り消す"><%--スコープから取り除くメソッド --%>
+	<%-- <br><input type="submit" name="change" value="変更する"><%--商品ページに飛ばす？スコープから指定のデータ列変更できるようにする --%>--%>
 	</form>
 <%-- } --%>
 	<h4>合計金額：￥1,860</h4>
 
 <form method ="GET" action="/tappy/OrderCheck"><%--Relay介さなくてもよい？ --%>
-<br><input type="submit" name="confirm" value="注文確定"><%--relay.java に投げる？ --%>
-<br><input type="submit" name="return" value="戻る">
+<br><input type="submit" name="name" value="注文確定"><%--relay.java に投げる？ --%>
+<br><input type="submit" name="name" value="追加注文"> <%-- 商品一覧ページ--%>
 </form>
 </body>
 </html>
