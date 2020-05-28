@@ -40,8 +40,8 @@ public class Relay extends HttpServlet {
 			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/jsp/modifyUserInfo.jsp");
 			d.forward(request, response);
 }
-		if(request.getParameter("action").equals("purchaceHistory")) {
-			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/jsp/purchaceHistory.jsp");
+		if(request.getParameter("action").equals("purchaseHistory")) {
+			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/jsp/purchaseHistory.jsp");
 			d.forward(request, response);
 }
 
