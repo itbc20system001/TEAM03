@@ -1,5 +1,7 @@
 package dao;
 
+import java.sql.PreparedStatement;
+import java.util.List;
 import java.util.Map;
 
 import model.MemberBean;
@@ -19,6 +21,20 @@ public class MemberDAO extends DAO<MemberBean> {
 				(String)record.get("tel"),
 				(String)record.get("mail")
 				);
+	}
+
+	//ユーザーID、パスワードが等しいユーザーを探して返す。存在しなければnullを返す
+	public MemberBean find(String userId,String password) {
+
+		List<MemberBean> members = executeQuery(conn -> {
+			PreparedStatement pStmt = conn.prepareStatement("SELECT * FROM member WHERE user_id = ? AND password = ?");
+			pStmt.setString(1, userId);
+			pStmt.setString(2, password);
+			return pStmt;
+		});
+
+		return members.isEmpty() ? null : members.get(0);
+
 	}
 
 }
