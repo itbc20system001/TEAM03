@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.LoginLogic;
+
 /**
  * Servlet implementation class kanagawaTestServlet
  */
@@ -37,7 +39,9 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//ログインが成功したかのフラグ
-		boolean isLoginSucceeded =true;
+		boolean isLoginSucceeded =LoginLogic.login(
+				request.getParameter("user_id"),
+				request.getParameter("password"));
 
 		if(isLoginSucceeded) {
 			//成功したらトップページにリダイレクト
@@ -45,7 +49,7 @@ public class Login extends HttpServlet {
 		}
 		else {
 			//失敗したらもう一度ログイン画面にフォワード
-			request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		}
 	}
 
