@@ -21,4 +21,8 @@ public class PurchaseHistoryLogic {
 		}
 		return userPHList;
 	}
+
+	public void addHistoryList(HttpSession session) {
+
+	}
 }
