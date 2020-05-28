@@ -38,10 +38,15 @@ public class OrderCheck extends HttpServlet {
 		if(name==null) {
 
 		}else if("取り消す".equals(name)) {
-			System.out.println("取り消す");
+			//セッションスコープからデータを削除し、更新（同一ページに飛ぶ）
+			//ArrayList
 			fPath = "WEB-INF/jsp/orderCheck.jsp";
-		}else {
-
+		}else if("注文確定".equals(name)){
+			//注文確定したので、配達先とか決める
+			fPath = "WEB-INF/jsp/derivery.jsp";
+		}else if("追加注文".equals(name)){
+			//追加注文するので、商品一覧ページに飛ばす
+			fPath = "WEB-INF/jsp/menu.jsp";
 		}
 		RequestDispatcher rdp = request.getRequestDispatcher(fPath);
 		rdp.forward(request, response);

@@ -39,7 +39,7 @@
 
 <form method ="GET" action="/tappy/OrderCheck"><%--Relay介さなくてもよい？ --%>
 <br><input type="submit" name="name" value="注文確定"><%--relay.java に投げる？ --%>
-<br><input type="submit" name="name" value="追加注文"> <%-- 商品一覧ページ--%>
+<br><input type="submit" name="name" value="追加注文"> <%-- 商品一覧ページmenu.jsp--%>
 </form>
 </body>
 </html>
