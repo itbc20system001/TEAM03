@@ -19,6 +19,8 @@
 電話番号：<input type="text" name="tel"><br>
 メールアドレス：<input type="text" name="mail"><br>
 この内容で登録する<input type="submit" value="登録">
+
+<!-- 会員登録に失敗したときに「失敗しました」メッセージを出したい -->
 </form>
 
 </body>
