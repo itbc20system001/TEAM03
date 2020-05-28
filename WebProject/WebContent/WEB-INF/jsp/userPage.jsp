@@ -13,7 +13,7 @@
 <a href="/tappy/relay?action=modifyUserInfo">ユーザー情報を変更</a>
 
 <!-- リレーを介してPurchaseHistoryへ -->
-<a href="/tappy/relay?action=purchaceHistory">購入履歴の確認</a>
+<a href="/tappy/relay?action=purchaseHistory">購入履歴の確認</a>
 <h2>ユーザー情報</h2>
 ID：<br>
 姓：<br>
