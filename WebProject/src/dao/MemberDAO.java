@@ -41,7 +41,7 @@ public class MemberDAO extends DAO<MemberBean> {
 
 		//ここにインサート文
 		boolean res = executeUpdate(conn -> {
-			String sql ="INSERT INTO member VALUES(?,?,?,?,?,?,?,?,)";
+			String sql ="INSERT INTO member VALUES(?,?,?,?,?,?,?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//INSERT文中の？に使用する値を設定しSQLを完成
