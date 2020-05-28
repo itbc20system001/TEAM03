@@ -22,8 +22,10 @@ public class Register extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//処理
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//フォワード
+		RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
+		d.forward(request, response);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

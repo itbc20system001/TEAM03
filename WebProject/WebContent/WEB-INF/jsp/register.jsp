@@ -9,7 +9,7 @@
 <body>
 <!-- ここにヘッダー？-->
 <h1>会員登録</h1>
-<form action="/tappy/servlet/Register" method="post">
+<form action="/tappy/Register" method="post">
 ユーザーID：<input type="text" name="user_id"><br>
 姓：<input type="text" name="user_l_name"><br>
 名：<input type="text" name="user_f_name"><br>
