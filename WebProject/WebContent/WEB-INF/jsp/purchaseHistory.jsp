@@ -18,10 +18,12 @@
 どこまで表示するかはちょっと考えるかな<br>
 <table border ="1">
 <tr><th>注文内容</th><th>再注文</th></tr>
+<% for(PurchaseBean i:phList){%>
 <tr><td>注文履歴データベースから表示</td>
 <td><form action="/WebProject/OrderCheck" method="post">
 <!-- ここで過去の購入履歴データを選択して投げれば処理楽になるのでは？ -->
 <input type="submit" name="history" value="再注文">
+<%} %>
 </form></td></tr>
 </table>
 </body>
