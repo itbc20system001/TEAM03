@@ -1,11 +1,8 @@
 package dao;
 
-import java.sql.PreparedStatement;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpSession;
 
 import model.PurchaseBean;
 
@@ -30,7 +27,7 @@ public class PurchaseDAO extends DAO<PurchaseBean> {
 
 	public List<PurchaseBean> findAll(){
 
-		return new PurchaseDAO().executeQuery( conn -> conn.prepareStatement("SELECT * FROM ") );
+		return new PurchaseDAO().executeQuery( conn -> conn.prepareStatement("SELECT * FROM purchase_history") );
 
 	}
 	public void creation(PurchaseBean ph) {//注文確定時、DBの履歴を更新

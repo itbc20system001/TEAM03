@@ -61,7 +61,6 @@ public class OrderCheck extends HttpServlet {
 		/*
 		 処理内容
 		 1．購入履歴からの場合はスコープから取得した
-
 		    情報をOrderCheck.jspに投げる
 		 */
 		if(a) {
