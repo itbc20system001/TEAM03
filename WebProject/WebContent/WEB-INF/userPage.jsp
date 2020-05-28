@@ -8,15 +8,12 @@
 </head>
 <body>
 <h1>マイページ</h1>
+
 <!-- リレーを介してmodifyUserInfoへ -->
-<a href="/tappy/relay?action=modifyUserInfo">マイページ</a>
-<form action="/tappy/Relay" method="post">
-<input type="submit" value="ユーザー情報を変更"><br>
-</form>
+<a href="/tappy/relay?action=modifyUserInfo">ユーザー情報を変更</a>
+
 <!-- リレーを介してPurchaseHistoryへ -->
-<form action="/tappy/relay?action=PurchaseHistory" method="post">
-<input type="submit" value="購入履歴の確認"><br>
-</form>
+<a href="/tappy/relay?action=purchaceHistory">購入履歴の確認</a>
 <h2>ユーザー情報</h2>
 ID：<br>
 姓：<br>
