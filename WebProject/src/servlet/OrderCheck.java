@@ -45,15 +45,9 @@ public class OrderCheck extends HttpServlet {
 
 		boolean a = true;
 		HttpSession session = request.getSession();
-		String userId = (String) session.getAttribute("ユーザーを保存している奴の名前");
 		List<PurchaseHistoryBean> pHList = new ArrayList<>();
 		pHList = (List<PurchaseHistoryBean>) session.getAttribute("PurchaseHistoryList");
-		List<PurchaseHistoryBean> userPHList = new ArrayList<>();
-		for(PurchaseHistoryBean i:pHList) {
-			if(userId.equals(i.getUserId())){
-				userPHList.add(i);
-			}
-		}
+
 		/*
 		 処理内容
 		 1．購入履歴からの場合はスコープから取得した
