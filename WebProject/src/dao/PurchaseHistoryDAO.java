@@ -26,11 +26,16 @@ public class PurchaseHistoryDAO extends DAO<PurchaseHistoryBean> {
 	}
 
 	public List<PurchaseHistoryBean> findAll(){
+<<<<<<< HEAD
 		return new PurchaseHistoryDAO().executeQuery( conn -> conn.prepareStatement("SELECT * FROM ") );
 
 	}
 	public void creation(PurchaseHistoryBean ph) {//注文確定時、DBの履歴を更新
 		//セッションスコープからDBに移す
+=======
+		return executeQuery( conn -> conn.prepareStatement("SELECT * FROM purchase_history") );
+
+>>>>>>> refs/remotes/origin/master
 	}
 
 }
