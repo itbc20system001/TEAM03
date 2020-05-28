@@ -27,6 +27,9 @@ public class Logout extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		//ログアウトのためセッションを破棄
+		request.getSession().invalidate();
 		//ログアウト画面にフォワード
 		request.getRequestDispatcher("/WEB-INF/jsp/logout.jsp").forward(request, response);
 	}
