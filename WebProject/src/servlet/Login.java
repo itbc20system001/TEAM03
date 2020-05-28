@@ -41,17 +41,21 @@ public class Login extends HttpServlet {
 
 
 
-		MemberBean loginMember =  LoginLogic.login(
+		MemberBean loginUser =  LoginLogic.login(
 				request.getParameter("user_id"),
 				request.getParameter("password"));
 
 
-		if(loginMember == null) {
-			//成功したらトップページにリダイレクト
+		if(loginUser != null) {
+			//ログイン成功したら・・・
+			//ログインユーザーをセッションスコープに入れる
+			request.getSession().setAttribute("user", loginUser);
+			//トップページにリダイレクト
 			response.sendRedirect("/tappy/");
 		}
 		else {
 			//失敗したらもう一度ログイン画面にフォワード
+			request.setAttribute("loginFailed", true);
 			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		}
 	}
