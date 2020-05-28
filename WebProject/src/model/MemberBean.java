@@ -10,7 +10,7 @@ public class MemberBean implements Serializable {
 	private String prefecture; //住所（都道府県）
 	private String address; //住所（市以下）
 	private String tel; //電話番号
-	private String main; //メールアドレス
+	private String mail; //メールアドレス
 
 	public MemberBean() {
 	}
@@ -24,7 +24,7 @@ public class MemberBean implements Serializable {
 		this.prefecture = prefecture;
 		this.address = address;
 		this.tel = tel;
-		this.main = main;
+		this.mail = mail;
 	}
 
 	public String getUserId() {
@@ -83,12 +83,12 @@ public class MemberBean implements Serializable {
 		this.tel = tel;
 	}
 
-	public String getMain() {
-		return main;
+	public String getMail() {
+		return mail;
 	}
 
-	public void setMain(String main) {
-		this.main = main;
+	public void setMail(String main) {
+		this.mail = mail;
 	}
 
 }
