@@ -20,16 +20,14 @@ public abstract class DAO<T> {
 	private final String DB_USER = "root";
 	private final String DB_PASS = "insource.2015it";
 
-
-	public DAO() {
-		// TODO 自動生成されたコンストラクター・スタブ
+	static {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
-		} catch (ClassNotFoundException e1) {
-			// TODO 自動生成された catch ブロック
-			e1.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
 	}
+
 
 	//record(カラム名、値)をもとにクラス（Beanなど）のインスタンスを作成する
 	protected abstract T construct(Map<String, Object> record);
@@ -63,7 +61,7 @@ public abstract class DAO<T> {
 					.collect(Collectors.toList());
 
 		} catch (SQLException e) {
-			// TODO 自動生成された catch ブロック
+
 			e.printStackTrace();
 			return null;
 		}
@@ -83,7 +81,7 @@ public abstract class DAO<T> {
 			}
 
 		} catch (SQLException e) {
-			// TODO 自動生成された catch ブロック
+
 			e.printStackTrace();
 			return false;
 		}
