@@ -46,19 +46,24 @@ public class Customize extends HttpServlet {
 			DBからトッピングの内容を持ってきてスコープに保存する処理を書く
 			一度だけ動かせばそれで終わりかもしれない
 		 */
+		//ロジックをインスタンス化（Staticmethodにできないかなぁ）
+		CustomizeLogic customizeLogic = new CustomizeLogic();
+
+		//カスタマイズのListを作成
 		List<CustomizeBean> iceList = new ArrayList<>();
-		List<CustomizeBean> topiocaTypeList = new ArrayList<>();
-		List<CustomizeBean> topiocaAmountList = new ArrayList<>();
-		List<CustomizeBean> sugerList = new ArrayList<>();
+		List<CustomizeBean> topiokaTypeList = new ArrayList<>();
+		List<CustomizeBean> topiokaAmountList = new ArrayList<>();
+		List<CustomizeBean> sugarList = new ArrayList<>();
 		List<CustomizeBean> drinkSizeList = new ArrayList<>();
 		List<CustomizeBean> toppingList = new ArrayList<>();
-		CustomizeLogic customizeLogic = new CustomizeLogic();
-		iceList = customizeLogic.makeCustomizeList("", "", "");
-		drinkSizeList = customizeLogic.makeCustomizeList("", "", "");
-		topiocaAmountList = customizeLogic.makeCustomizeList("", "", "");
-		topiocaTypeList = customizeLogic.makeCustomizeList("", "", "");
-		sugerList = customizeLogic.makeCustomizeList("", "", "");
-		toppingList = customizeLogic.makeCustomizeList("", "", "");
+
+		//ListにDBの値を格納　引数はハードコーディングしか無理かな？
+		iceList = customizeLogic.makeCustomizeList("ice_amount", "ice_amount_cd", "mst_ice_amount");
+		drinkSizeList = customizeLogic.makeCustomizeList("drink_size", "drink_size_cd", "mst_drink_size");
+		topiokaAmountList = customizeLogic.makeCustomizeList("tapioka_amount", "tapioka_amount_cd", "mst_tapioka_amount");
+		topiokaTypeList = customizeLogic.makeCustomizeList("tapioka_kind", "tapioka_kind_cd", "mst_tapioka_kind");
+		sugarList = customizeLogic.makeCustomizeList("drink_sugar", "drink_sugar_cd", "mst_drink_sugar");
+		toppingList = customizeLogic.makeCustomizeList("topping", "topping_cd", "mst_topping");
 
 
 		RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/customize.jsp");
