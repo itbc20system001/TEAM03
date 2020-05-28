@@ -32,7 +32,7 @@
       <%
       	}
       %>
-    </select><br>甘さ<br> <select name="sugger">
+    </select><br>甘さ<br> <select name="sugar">
       <%
       	for (CustomizeBean i : sugarList) {
       %>
