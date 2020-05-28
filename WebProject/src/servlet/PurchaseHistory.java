@@ -54,7 +54,7 @@ public class PurchaseHistory extends HttpServlet {
 		PurchaseHistoryLogic phLogic = new PurchaseHistoryLogic();
 		historyList = phLogic.makeHistoryList();
 
-		session.setAttribute("purchaseHistoryList", historyList);
+		session.setAttribute("PurchaseHistoryList", historyList);
 
 		RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/purchaseHistory.jsp");
 		rdp.forward(request, response);
