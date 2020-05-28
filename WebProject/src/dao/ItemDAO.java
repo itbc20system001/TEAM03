@@ -12,7 +12,7 @@ public class ItemDAO extends DAO<ItemBean> {
 
 		return new ItemBean(
 
-				(String) record.get("item_cd"),
+				(String) record.get("item_name"),
 				(int)record.get("item_price"),
 				(String)record.get("item_text"),
 				(String)record.get("item_image_url")
