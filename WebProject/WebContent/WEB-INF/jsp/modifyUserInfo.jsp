@@ -16,21 +16,21 @@
 <!-- 各テキストフィールドには現在のユーザー情報をデフォルトで入れたい -->
 <form method="post" action="/tappy/ModifyUserInfo">
   ユーザーID<br>
-  <input type="text" name="user_id" value={$}><br>
+  <input type="text" name="user_id" value=${user.userId} ><br>
   姓<br>
-  <input type="text" name="user_l_name"><br>
+  <input type="text" name="user_l_name" value=${user.userLName}><br>
   名<br>
-  <input type="text" name="user_f_name"><br>
+  <input type="text" name="user_f_name" value=${user.userFName}><br>
   パスワード<br>
-  <input type="password" name="password"><br>
+  <input type="password" name="password" value=${user.password}><br>
   都道府県<br>
-  <input type="text" name="prefecture"><br>
+  <input type="text" name="prefecture" value=${user.prefecture}><br>
   住所（市以下）<br>
-  <input type="text" name="address"><br>
+  <input type="text" name="address" value=${user.address}><br>
   電話番号<br>
-  <input type="text" name="tel"><br>
+  <input type="text" name="tel" value=${user.tel}><br>
   メールアドレス<br>
-  <input type="text" name="mail"><br>
+  <input type="text" name="mail" value=${user.mail}><br>
 
   <input type="submit" value="変更">
 

@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.MemberBean;
+import model.RegisterLogic;
+
 @WebServlet("/Register")
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -36,15 +39,25 @@ public class Register extends HttpServlet {
 		String tel = request.getParameter("tel");
 		String mail = request.getParameter("mail");
 
-		//DAOで何かをしてデータベースに登録
+		//MemberBeanに情報を詰める??コンストラクタで
+		MemberBean mb = new MemberBean(userId, userLName, userFname, password, prefecture, address, tel, mail);
 
-		//登録できているかの確認
+		//RegisterLogic.javaのメソッドexecute（仮）を呼び出して、戻り値を受け取る
+		RegisterLogic rl = new RegisterLogic();
 
-		//OKなら会員登録画面へ、問題があればregister.jspに戻る
-		RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/registerComplete.jsp");
-		d.forward(request, response);
+		boolean b = rl.execute(mb);
 
-		doGet(request, response);
+		//OKなら会員登録完了画面へ、問題があればregister.jspに戻る
+		if (b = true) {
+			//これフォワードでなくリダイレクトしたほうがいいのでは…？
+			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/registerComplete.jsp");
+			d.forward(request, response);
+		} else {
+			//失敗したらもう一度登録画面へ
+			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
+			d.forward(request, response);
+		}
+
 	}
 
 }
