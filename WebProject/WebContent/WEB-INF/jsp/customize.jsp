@@ -28,7 +28,7 @@
       <%
       	for (CustomizeBean i : drinkSizeList) {
       %>
-      <option value=<%=i.getCode()%>><%=i.getCode()%></option>
+      <option value=<%=i.getCode()%>><%=i.getCustomize()%></option>
       <%
       	}
       %>
@@ -36,7 +36,7 @@
       <%
       	for (CustomizeBean i : sugarList) {
       %>
-      <option value=<%=i.getCode()%>><%=i.getCode()%></option>
+      <option value=<%=i.getCode()%>><%=i.getCustomize()%></option>
       <%
       	}
       %>
@@ -44,7 +44,7 @@
       <%
       	for (CustomizeBean i : iceList) {
       %>
-      <option value=<%=i.getCode()%>><%=i.getCode()%></option>
+      <option value=<%=i.getCode()%>><%=i.getCustomize()%></option>
       <%
       	}
       %>
@@ -52,7 +52,7 @@
       <%
       	for (CustomizeBean i : tapiokaTypeList) {
       %>
-      <option value=<%=i.getCode()%>><%=i.getCode()%></option>
+      <option value=<%=i.getCode()%>><%=i.getCustomize()%></option>
       <%
       	}
       %>
@@ -60,7 +60,7 @@
       <%
       	for (CustomizeBean i : tapiokaAmountList) {
       %>
-      <option value=<%=i.getCode()%>><%=i.getCode()%></option>
+      <option value=<%=i.getCode()%>><%=i.getCustomize()%></option>
       <%
       	}
       %>
@@ -68,7 +68,7 @@
       <%
       	for (CustomizeBean i : toppingList) {
       %>
-      <option value=<%=i.getCode()%>><%=i.getCode()%></option>
+      <option value=<%=i.getCode()%>><%=i.getCustomize()%></option>
       <%
       	}
       %>
