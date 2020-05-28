@@ -10,7 +10,7 @@
 <h1>登録が完了しました</h1>
 
 <!-- リレーを介してログイン画面へ飛ぶ -->
-<a href="/tappy/relay?action=login">ログイン
-</form>
+<a href="/tappy/relay?action=login">ログイン</a>
+
 </body>
 </html>
