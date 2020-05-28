@@ -23,6 +23,7 @@
   <input type="password" name="password"><br>
 
   <input type="submit" value="ログイン">
+  <a href="/tappy/Register">会員登録</a>
 
 </form>
 
