@@ -41,11 +41,11 @@ public class ModifyUserInfo extends HttpServlet {
 
 		if(isModifySucceeded) {
 			//成功したらユーザーページにリダイレクト
-			response.sendRedirect("/tappy/UserPage");
+			response.sendRedirect("/tappy/jsp/UserPage");
 		}
 		else {
 			//失敗したらもう一度変更画面にフォワード
-			request.getRequestDispatcher("/WEB-INF/modifyUserInfo.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/jsp/modifyUserInfo.jsp").forward(request, response);
 		}
 	}
 
