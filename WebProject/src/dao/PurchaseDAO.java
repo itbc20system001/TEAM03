@@ -7,14 +7,14 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import model.PurchaseHistoryBean;
+import model.PurchaseBean;
 
-public class PurchaseHistoryDAO extends DAO<PurchaseHistoryBean> {
+public class PurchaseDAO extends DAO<PurchaseBean> {
 
 	@Override
-	protected PurchaseHistoryBean construct(Map<String, Object> record) {
+	protected PurchaseBean construct(Map<String, Object> record) {
 		// TODO 自動生成されたメソッド・スタブ
-		return new PurchaseHistoryBean(
+		return new PurchaseBean(
 				(String)record.get("user_id"),
 				(int)record.get("item_cd"),
 				(Date)record.get("purchase_date"),
@@ -28,12 +28,12 @@ public class PurchaseHistoryDAO extends DAO<PurchaseHistoryBean> {
 				);
 	}
 
-	public List<PurchaseHistoryBean> findAll(){
+	public List<PurchaseBean> findAll(){
 
-		return new PurchaseHistoryDAO().executeQuery( conn -> conn.prepareStatement("SELECT * FROM ") );
+		return new PurchaseDAO().executeQuery( conn -> conn.prepareStatement("SELECT * FROM ") );
 
 	}
-	public void creation(PurchaseHistoryBean ph) {//注文確定時、DBの履歴を更新
+	public void creation(PurchaseBean ph) {//注文確定時、DBの履歴を更新
 		//セッションスコープからDBに移す
 
 	}
