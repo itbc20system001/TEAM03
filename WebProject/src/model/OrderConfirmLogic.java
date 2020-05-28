@@ -23,7 +23,7 @@ public class OrderConfirmLogic {//注文内容ダブってたら統合
 		}
 		return total;
 	}
-	public void creation(PurchaseHistoryBean ph) {//セッションに注文したデータ追加　引数がわからん
+	public void creation(PurchaseBean ph) {//セッションに注文したデータ追加　引数がわからん
 
 
 		/*PurchaseHistoryDAO dao = new PurchaseHistoryDAO();

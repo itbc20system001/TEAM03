@@ -24,7 +24,17 @@
 <input type="text" name="text">
 <input type="submit" value="検索">
 </form>
+<table width="1000">
 
+<%  
+    
+
+%>
+
+<tr height="200">
+
+
+</table>
 <footer>
     <ul>
         <li><a href="/tappy/relay?action=menu">Menu</a></li>
