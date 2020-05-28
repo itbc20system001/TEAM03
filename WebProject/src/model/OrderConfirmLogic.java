@@ -4,7 +4,7 @@ public class OrderConfirmLogic {//注文内容ダブってたら統合
 
 	int total=0;
 	int price=0;
-	int itemarray[] = new int[5];
+	int itemarray[] = new int[5];//要素数無制限にしたい
 
 	public void matchOrder(){
 		//スコープから取得

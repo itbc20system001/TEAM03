@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.LoginLogic;
+import model.MemberBean;
 
 /**
  * Servlet implementation class kanagawaTestServlet
@@ -30,7 +31,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 	}
 
 	/**
@@ -38,12 +39,14 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//ログインが成功したかのフラグ
-		boolean isLoginSucceeded =LoginLogic.login(
+
+
+		MemberBean loginMember =  LoginLogic.login(
 				request.getParameter("user_id"),
 				request.getParameter("password"));
 
-		if(isLoginSucceeded) {
+
+		if(loginMember == null) {
 			//成功したらトップページにリダイレクト
 			response.sendRedirect("/tappy/");
 		}
