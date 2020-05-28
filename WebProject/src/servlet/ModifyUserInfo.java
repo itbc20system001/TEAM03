@@ -41,7 +41,7 @@ public class ModifyUserInfo extends HttpServlet {
 
 		if(isModifySucceeded) {
 			//成功したらユーザーページにリダイレクト
-			response.sendRedirect("/tappy/jsp/UserPage");
+			response.sendRedirect("/tappy/UserPage");
 		}
 		else {
 			//失敗したらもう一度変更画面にフォワード
