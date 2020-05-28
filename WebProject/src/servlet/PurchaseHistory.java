@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.PurchaseHistoryBean;
+import model.PurchaseBean;
 import model.PurchaseHistoryLogic;
 
 /**
@@ -50,7 +50,7 @@ public class PurchaseHistory extends HttpServlet {
 
 
 		HttpSession session = request.getSession();
-		List<PurchaseHistoryBean> historyList = new ArrayList<>();
+		List<PurchaseBean> historyList = new ArrayList<>();
 		PurchaseHistoryLogic phLogic = new PurchaseHistoryLogic();
 		historyList = phLogic.makeHistoryList(session);
 

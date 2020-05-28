@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.PurchaseHistoryBean;
+import model.PurchaseBean;
 
 /**
  * Servlet implementation class OrderCheck
@@ -55,8 +55,8 @@ public class OrderCheck extends HttpServlet {
 
 		boolean a = true;
 		HttpSession session = request.getSession();
-		List<PurchaseHistoryBean> pHList = new ArrayList<>();
-		pHList = (List<PurchaseHistoryBean>) session.getAttribute("PurchaseHistoryList");
+		List<PurchaseBean> pHList = new ArrayList<>();
+		pHList = (List<PurchaseBean>) session.getAttribute("PurchaseHistoryList");
 
 		/*
 		 処理内容
@@ -72,17 +72,18 @@ public class OrderCheck extends HttpServlet {
 		    情報を購入履歴のDBに保存してからorderCheck.jspに投げる
 		 */
 
-		if(request.getParameter("name").equals("history")) {
-			//HttpSession session = request.getSession();
-			//セッションスコープからインスタンス取得、p220から やり方が分からん・・・
-			//PurchaseHistoryBean ph =(PurchaseHistoryBean) session.getAttribute("")
-		}
-		if(request.getParameter("name").equals("customize")) {
+			if(request.getParameter("name").equals("history")) {
+				//HttpSession session = request.getSession();
+				//セッションスコープからインスタンス取得、p220から やり方が分からん・・・
+				//PurchaseHistoryBean ph =(PurchaseHistoryBean) session.getAttribute("")
+			}
+			if(request.getParameter("name").equals("customize")) {
 
+			}
+
+			RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/orderCheck.jsp");
+			rdp.forward(request, response);
 		}
 
-		RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/orderCheck.jsp");
-		rdp.forward(request, response);
 	}
-
 }
