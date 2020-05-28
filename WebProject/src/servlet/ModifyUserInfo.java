@@ -41,20 +41,21 @@ public class ModifyUserInfo extends HttpServlet {
 
 		//フォームから送られてきた変更情報をもとにMemberBeanを作成
 		request.setCharacterEncoding("UTF-8");
-		String userId = request.getParameter("user_id");
+		//String userId = request.getParameter("user_id");
 		String userLName = request.getParameter("user_l_name");
 		String userFName = request.getParameter("user_f_name");
-		String password = request.getParameter("password");
+		//String password = request.getParameter("password");
 		String prefecture = request.getParameter("prefecture");
 		String address = request.getParameter("address");
 		String tel = request.getParameter("tel");
 		String mail = request.getParameter("mail");
 
-		MemberBean newUser = new MemberBean(userId,userLName,userFName,password,prefecture,address,tel,mail);
 		MemberBean oldMember = (MemberBean)request.getSession().getAttribute("user");
+		MemberBean newUser = new MemberBean(oldMember.getUserId(),userLName,userFName,oldMember.getPassword(),prefecture,address,tel,mail);
+
 
 		//ユーザー変更が成功したかのフラグを受け取る
-		boolean isModifySucceeded =ModifyUserInfoLogic.modify(newUser);
+		boolean isModifySucceeded =ModifyUserInfoLogic.modify(oldMember,newUser);
 
 		if(isModifySucceeded) {
 			//成功したらユーザーページにリダイレクト
