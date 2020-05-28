@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="model.MemberBean" %>
+
+    <%
+      MemberBean user = (MemberBean)session.getAttribute("user");
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +16,7 @@
 <!-- 各テキストフィールドには現在のユーザー情報をデフォルトで入れたい -->
 <form method="post" action="/tappy/ModifyUserInfo">
   ユーザーID<br>
-  <input type="text" name="user_id"><br>
+  <input type="text" name="user_id" value={$}><br>
   姓<br>
   <input type="text" name="user_l_name"><br>
   名<br>
