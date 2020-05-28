@@ -22,7 +22,7 @@
       <option value="">for文でデータベースからぶん回す！</option>
     </select> <br>トッピング(複数選ぶならチェックボックスかなぁ)<br> <select name="sugger">
       <option value="">for文でデータベースからぶん回す！</option>
-    </select> <br><input type="submit" value="決定">
+    </select> <br><input name="customize" type="submit" value="決定">
   </form>
 </body>
 </html>
