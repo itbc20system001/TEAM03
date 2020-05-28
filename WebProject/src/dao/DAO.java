@@ -19,7 +19,7 @@ public abstract class DAO<T> {
 	private final String JDBC_URL = "jdbc:mariadb://localhost/tappy";
 	private final String DB_USER = "root";
 	private final String DB_PASS = "insource.2015it";
-	private String sql;
+
 
 	public DAO() {
 		// TODO 自動生成されたコンストラクター・スタブ
@@ -32,7 +32,7 @@ public abstract class DAO<T> {
 	}
 
 	//record(カラム名、値)をもとにクラス（Beanなど）のインスタンスを作成する
-	public abstract T construct(Map<String, Object> record);
+	protected abstract T construct(Map<String, Object> record);
 
 	//createSqlStatementによって作られたSQL文（問い合わせ）を実行し結果を返す
 	public List<T> executeQuery(FunctionWithSQLException<Connection, PreparedStatement> createSqlStatement) {
