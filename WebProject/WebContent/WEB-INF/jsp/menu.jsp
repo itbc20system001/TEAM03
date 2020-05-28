@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@page import="model.ItemBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +18,7 @@
         <li><a href="/tappy/relay?action=contact">お問い合わせ</a></li>
         <li><a href="/tappy/relay?action=userPage">My page</a></li>
         <li><a href="/tappy/relay?action=login">Login</a></li>
+        <li><a href="/tappy/relay?action=register">会員登録</a></li>
       </ul>
     </nav>
   </header>
@@ -24,14 +27,24 @@
 <input type="text" name="text">
 <input type="submit" value="検索">
 </form>
-<table width="1000">
+<table width="900">
 
-<%  
-    
+<%
+  List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
 
+  int k=0;
+  for(ItemBean bean:itemList){
+	  if(k%3==0) {
 %>
+    <tr height="50">
+    <%} %>
 
-<tr height="200">
+<td>width="300" >
+<img alt="ItemText" src="img/<%=bean.getItemImageUrl() %>" width="300" height="300">
+    img src="<%=bean.getItemImageUrl() %>"
+    bean.getItemText()</td>
+
+<% }%>
 
 
 </table>
@@ -41,6 +54,7 @@
         <li><a href="/tappy/relay?action=contact">お問い合わせ</a></li>
         <li><a href="/tappy/relay?action=userPage">My page</a></li>
         <li><a href="/tappy/relay?action=login">Login</a></li>
+        <li><a href="/tappy/relay?action=register">会員登録</a></li>
     </ul>
     <h4>内容が空っぽに見えれば会社の情報など適当に</h4>
   </footer>

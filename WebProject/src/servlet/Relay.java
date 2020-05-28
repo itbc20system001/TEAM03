@@ -20,7 +20,7 @@ public class Relay extends HttpServlet {
 
 		if(request.getParameter("action").equals("menu")) {
 
-			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
+			RequestDispatcher d= request.getRequestDispatcher("/ItemList");
 			d.forward(request, response);
 		}
 
@@ -33,6 +33,12 @@ public class Relay extends HttpServlet {
 		if(request.getParameter("action").equals("login")) {
 
 			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+			d.forward(request, response);
+		}
+
+		if(request.getParameter("action").equals("register")) {
+
+			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/jsp/regiter.jsp");
 			d.forward(request, response);
 		}
 

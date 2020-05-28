@@ -21,7 +21,7 @@ public class ItemDAO extends DAO<ItemBean> {
 	}
 
 	public List<ItemBean> findAll(){
-		return new ItemDAO().executeQuery( conn -> conn.prepareStatement("SELECT * FROM ") );
+		return new ItemDAO().executeQuery( conn -> conn.prepareStatement("SELECT * FROM item") );
 
 	}
 
