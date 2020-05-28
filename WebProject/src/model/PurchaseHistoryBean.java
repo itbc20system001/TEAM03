@@ -6,7 +6,7 @@ import java.util.Date;
 public class PurchaseHistoryBean implements Serializable {
 	//private int purchaseId; //購入ID
 	private String userId; //ユーザーID
-	private int item; //商品CD
+	private int itemCd; //商品CD
 	private Date  purchaseDate; //購入日時
 	private int purchaseQuantity; //購入個数
 	private int drinkSize; //ドリンクサイズ
@@ -24,7 +24,7 @@ public class PurchaseHistoryBean implements Serializable {
 		super();
 		//this.purchaseId = purchaseId;
 		this.userId = userId;
-		this.item = item;
+		this.itemCd = item;
 		this.purchaseDate = purchaseDate;
 		this.purchaseQuantity = purchaseQuantity;
 		this.drinkSize = drinkSize;
@@ -52,11 +52,11 @@ public class PurchaseHistoryBean implements Serializable {
 	}
 
 	public int getItem() {
-		return item;
+		return itemCd;
 	}
 
 	public void setItem(int item) {
-		this.item = item;
+		this.itemCd = item;
 	}
 
 	public Date getPurchaseDate() {

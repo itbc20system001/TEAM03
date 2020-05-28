@@ -7,7 +7,13 @@
 <title>Tappy</title>
 </head>
 <body>
+
 <h1>ログイン</h1>
+
+<% if (request.getAttribute("loginFailed") != null){ %>
+<h3>ログイン失敗しました</h3>
+<%} %>
+
 <form method="post" action="/tappy/Login">
 
   ユーザーID<br>
