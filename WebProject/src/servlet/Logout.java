@@ -28,7 +28,7 @@ public class Logout extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//ログアウト画面にフォワード
-		request.getRequestDispatcher("/WEB-INF/logout.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/logout.jsp").forward(request, response);
 	}
 
 	/**
