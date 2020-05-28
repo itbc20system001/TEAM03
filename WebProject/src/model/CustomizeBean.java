@@ -1,11 +1,15 @@
 package model;
 
-public class CustomizeBean {
+import java.io.Serializable;
+
+public class CustomizeBean implements Serializable{
+	private int code;
 	private String customize;
 
 
-	public CustomizeBean(String customize) {
+	public CustomizeBean(int code,String customize) {
 		super();
+		this.code = code;
 		this.customize = customize;
 	}
 
@@ -23,6 +27,13 @@ public class CustomizeBean {
 	public CustomizeBean() {
 
 	}
+	public int getCode() {
+		return code;
+	}
 
+
+	public void setCode(int code) {
+		this.code = code;
+	}
 
 }
