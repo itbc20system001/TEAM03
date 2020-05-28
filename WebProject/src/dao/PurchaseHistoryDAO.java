@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import model.PurchaseHistoryBean;
@@ -22,6 +23,11 @@ public class PurchaseHistoryDAO extends DAO<PurchaseHistoryBean> {
 				(int)record.get("tapioka_amount_cd"),
 				(int)record.get("topping_cd")
 				);
+	}
+
+	public List<PurchaseHistoryBean> findAll(){
+		return executeQuery( conn -> conn.prepareStatement("SELECT * FROM purchase_history") );
+
 	}
 
 }
