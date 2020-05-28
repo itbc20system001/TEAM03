@@ -20,28 +20,28 @@ public class Relay extends HttpServlet {
 
 		if(request.getParameter("action").equals("menu")) {
 
-			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/menu.jsp");
+			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
 			d.forward(request, response);
 		}
 
 		if(request.getParameter("action").equals("userPage")) {
 
-			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/userPage.jsp");
+			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/jsp/userPage.jsp");
 			d.forward(request, response);
 		}
 
 		if(request.getParameter("action").equals("login")) {
 
-			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/login.jsp");
+			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 			d.forward(request, response);
 		}
 
 		if(request.getParameter("action").equals("modifyUserInfo")) {
-			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/modifyUserInfo.jsp");
+			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/jsp/modifyUserInfo.jsp");
 			d.forward(request, response);
 }
 		if(request.getParameter("action").equals("purchaceHistory")) {
-			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/purchaceHistory.jsp");
+			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/jsp/purchaceHistory.jsp");
 			d.forward(request, response);
 }
 
