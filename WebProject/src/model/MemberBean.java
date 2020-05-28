@@ -16,7 +16,7 @@ public class MemberBean implements Serializable {
 	}
 
 	public MemberBean(String userId, String userLName, String userFName, String password, String prefecture,
-			String address, String tel, String main) {
+			String address, String tel, String mail) {
 		this.userId = userId;
 		this.userLName = userLName;
 		this.userFName = userFName;
