@@ -30,7 +30,20 @@ public class OrderComplete extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		//注文内容一覧をセッションスコープから取得
-		List<OrderDetailBean> orderList =  (List<OrderDetailBean>)session.getAttribute("orderList");
+		//List<OrderDetailBean> orderList =  (List<OrderDetailBean>)session.getAttribute("orderList");
+
+		//注文内容一覧のテスト用データ
+		List<OrderDetailBean> orderList =new ArrayList<>();
+		orderList.add(new OrderDetailBean(
+				2,
+				13,
+				2,
+				1,
+				2,
+				1,
+				2,
+				1
+				));
 
 		//ログインしているユーザーを取得
 		MemberBean member = (MemberBean)session.getAttribute("user");
@@ -42,7 +55,7 @@ public class OrderComplete extends HttpServlet {
 		session.setAttribute("orderList", new ArrayList<OrderDetailBean>());
 
 		//注文完了画面にフォワード
-		request.getRequestDispatcher("/WEB-INF/jsp/orderCoplete.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/orderComplete.jsp").forward(request, response);
 
 
 	}
