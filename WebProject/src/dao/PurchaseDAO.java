@@ -12,6 +12,7 @@ public class PurchaseDAO extends DAO<PurchaseBean> {
 	protected PurchaseBean construct(Map<String, Object> record) {
 		// TODO 自動生成されたメソッド・スタブ
 		return new PurchaseBean(
+				(int)record.get("purchase_id"),
 				(String)record.get("user_id"),
 				(int)record.get("item_cd"),
 				(String)record.get("purchase_date"),
