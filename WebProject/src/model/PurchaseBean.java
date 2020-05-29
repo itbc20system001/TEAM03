@@ -65,11 +65,11 @@ public class PurchaseBean implements Serializable {
 		this.userId = userId;
 	}
 
-	public int getItem() {
+	public int getItemCd() {
 		return itemCd;
 	}
 
-	public void setItem(int item) {
+	public void setItemCd(int item) {
 		this.itemCd = item;
 	}
 

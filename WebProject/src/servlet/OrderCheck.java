@@ -75,8 +75,9 @@ public class OrderCheck extends HttpServlet {
 			1．購入履歴からの場合はスコープから取得した
 		    情報をOrderCheck.jspに投げる
 			 */
-			//履歴から注文された注文Idを取得
+			//履歴から注文された注文Idを取得しセッションスコープに保存
 			String[] purchaseIdList = request.getParameterValues("purchase_Id_List");
+			session.setAttribute("purchaseIdList", purchaseIdList);
 
 		}else{/*
 

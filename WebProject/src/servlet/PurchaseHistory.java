@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.ItemListLogic;
 import model.PurchaseBean;
 import model.PurchaseHistoryLogic;
 
@@ -50,6 +51,9 @@ doPost(request, response);
 
 
 		HttpSession session = request.getSession();
+		if(session.getAttribute("itemList") == null) {
+			session.setAttribute("itemList", ItemListLogic.itemList());
+		}
 		List<PurchaseBean> historyList = new ArrayList<>();
 		PurchaseHistoryLogic phLogic = new PurchaseHistoryLogic();
 		historyList = phLogic.makeHistoryList(session);

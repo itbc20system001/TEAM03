@@ -38,8 +38,11 @@
 <% } %>
 	<h4>合計金額：￥1,860</h4>
 
-<form method ="GET" action="/tappy/OrderCheck"><%--Relay介さなくてもよい？ --%>
+<form method ="GET" action="/tappy/OrderComplete"><%--Relay介さなくてもよい？ --%>
 <br><input type="submit" name="name" value="注文確定"><%--relay.java に投げる？ --%>
+</form>
+
+<form method ="GET" action="/tappy/ItemList">
 <br><input type="submit" name="name" value="追加注文"> <%-- 商品一覧ページmenu.jsp--%>
 </form>
 </body>
