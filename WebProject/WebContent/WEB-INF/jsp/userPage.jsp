@@ -1,3 +1,4 @@
+<%@page import="model.MemberBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,15 +15,16 @@
 
 <!-- リレーを介してPurchaseHistoryへ -->
 <a href="/tappy/relay?action=purchaseHistory">購入履歴の確認</a>
+
+<% MemberBean user = (MemberBean)session.getAttribute("user");%>
 <h2>ユーザー情報</h2>
-ID：<br>
-姓：<br>
-名：<br>
-パスワード（不要？）：<br>
-住所（都道府県）：<br>
-住所（市以下）：<br>
-電話番号：<br>
-メールアドレス：<br>
+ID：<%=user.getUserId() %><br>
+姓：<%=user.getUserLName() %><br>
+名：<%=user.getUserFName() %><br>
+住所（都道府県）：<%=user.getPrefecture() %><br>
+住所（市以下）：<%=user.getAddress() %><br>
+電話番号：<%=user.getTel() %><br>
+メールアドレス：<%=user.getMail() %><br>
 
 
 

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="model.CustomizeBean,java.util.List"%>
+<%@ page import="model.CustomizeBean,java.util.List,model.ItemBean"%>
 
 <%
 	List<CustomizeBean> iceList = (List<CustomizeBean>) session.getAttribute("iceList");
@@ -8,6 +8,7 @@
 	List<CustomizeBean> tapiokaTypeList = (List<CustomizeBean>) session.getAttribute("tapiokaTypeList");
 	List<CustomizeBean> sugarList = (List<CustomizeBean>) session.getAttribute("sugarList");
 	List<CustomizeBean> toppingList = (List<CustomizeBean>) session.getAttribute("toppingList");
+   ItemBean item = (ItemBean)request.getAttribute("item");
 %>
 
 
