@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet("/relay")
@@ -25,9 +26,14 @@ public class Relay extends HttpServlet {
 		}
 
 		if(request.getParameter("action").equals("userPage")) {
-
-			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/jsp/userPage.jsp");
+			HttpSession session = request.getSession();
+			if(session.getAttribute("user") == null) {
+				RequestDispatcher d = request.getRequestDispatcher("Login");
+				d.forward(request, response);
+			}else {
+			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/userPage.jsp");
 			d.forward(request, response);
+			}
 		}
 
 		if(request.getParameter("action").equals("login")) {
