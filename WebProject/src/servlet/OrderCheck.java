@@ -59,7 +59,7 @@ public class OrderCheck extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//商品コードはどのように送られてくるのか
 		HttpSession session = request.getSession();
-
+		request.getParameterValues("purchase_Id_List");
 		List<OrderDetailBean> orderList = (List<OrderDetailBean>)session.getAttribute("orderList");
 
 		if (orderList == null) {
