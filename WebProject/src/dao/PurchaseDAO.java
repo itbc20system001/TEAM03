@@ -1,6 +1,7 @@
 package dao;
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.Map;
 
@@ -30,9 +31,24 @@ public class PurchaseDAO extends DAO<PurchaseBean> {
 		return new PurchaseDAO().executeQuery( conn -> conn.prepareStatement("SELECT * FROM purchase_history") );
 
 	}
-	public void creation(PurchaseBean ph) {//注文確定時、DBの履歴を更新
+	public void creation(PurchaseBean pb) {//注文確定時、DBの履歴を更新
 		//セッションスコープからDBに移す
+				executeUpdate(conn -> {
 
+					PreparedStatement pStmt = conn.prepareStatement("INSERT INTO purchase_history VALUES (?,?,?,?,?,?,?,?,?,?)");
+					pStmt.setString(1, pb.getUserId());
+					pStmt.setInt(2, pb.getItem());//Cd???
+					pStmt.setDate(3, pb.getPurchaseDate());//Date
+					pStmt.setInt(4, pb.getPurchaseQuantity());
+					pStmt.setInt(5, pb.getDrinkSize());
+					pStmt.setInt(6, pb.getDrinkSugar());
+					pStmt.setInt(7, pb.getIceAmount());
+					pStmt.setInt(8, pb.getTapiokaKind());
+					pStmt.setInt(9, pb.getTapiokaAmount());
+					pStmt.setInt(10, pb.getTopping());
+					return pStmt;
+
+				});
 	}
 
 }
