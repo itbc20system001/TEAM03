@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="model.CustomizeBean,java.util.List"%>
+<%@ page import="model.CustomizeBean,java.util.List,model.ItemBean"%>
 
 <%
 	List<CustomizeBean> iceList = (List<CustomizeBean>) session.getAttribute("iceList");
@@ -8,6 +8,7 @@
 	List<CustomizeBean> tapiokaTypeList = (List<CustomizeBean>) session.getAttribute("tapiokaTypeList");
 	List<CustomizeBean> sugarList = (List<CustomizeBean>) session.getAttribute("sugarList");
 	List<CustomizeBean> toppingList = (List<CustomizeBean>) session.getAttribute("toppingList");
+   ItemBean item = (ItemBean)request.getAttribute("item");
 %>
 
 
@@ -23,7 +24,7 @@
   <br> 画面左側はドリンクの画像で右側でトッピング選択するとかがいいかな？
   <br> ドリンクのサイズ
   <br>
-  <form action="/Tappy/OrderCheck" method="post">
+  <form action="/Tappy/OrderCheck?itemCd=<%=item.getItemCd()%>" method="post">
     <select name="size">
       <%
       	for (CustomizeBean i : drinkSizeList) {
