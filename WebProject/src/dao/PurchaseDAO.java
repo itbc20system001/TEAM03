@@ -37,7 +37,7 @@ public class PurchaseDAO extends DAO<PurchaseBean> {
 
 					PreparedStatement pStmt = conn.prepareStatement("INSERT INTO purchase_history VALUES (?,?,?,?,?,?,?,?,?,?)");
 					pStmt.setString(1, pb.getUserId());
-					pStmt.setInt(2, pb.getItem());//Cd???
+					pStmt.setInt(2, pb.getItemCd());//Cd???
 					pStmt.setString(3, pb.getPurchaseDate());//Date
 					pStmt.setInt(4, pb.getPurchaseQuantity());
 					pStmt.setInt(5, pb.getDrinkSize());

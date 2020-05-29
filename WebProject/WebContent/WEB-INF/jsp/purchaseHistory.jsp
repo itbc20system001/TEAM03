@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="model.PurchaseBean,java.util.List,java.util.ArrayList"%>
+<%@ page import="model.PurchaseBean,java.util.List,java.util.ArrayList,model.ItemBean"%>
 
 <%
 
 List<PurchaseBean> phList = (List<PurchaseBean>) session.getAttribute("PurchaseHistoryList");
 List<PurchaseBean> checkList = new ArrayList<>();
+List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
+
 %>
 <!DOCTYPE html>
 <html>
@@ -28,7 +30,16 @@ List<PurchaseBean> checkList = new ArrayList<>();
       	for (PurchaseBean i : phList) {
       %>
       <tr>
-        <td><%=i.getUserId()%><br><%=i.getPurchaseId() %></td>
+        <td>
+          <%
+        	for(ItemBean j: itemList){
+                  if(i.getItemCd() == j.getItemCd()){ %> <a href="/tappy/Item?itemCd=<%=j.getItemCd()%>"> <img src="<%=j.getItemImageUrl() %>">
+        </a>
+          <p><%= j.getItemText()%></p> <%
+                  }
+                }
+        %>
+        </td>
         <td><input type="checkbox" name="purchase_Id_List" value=<%=i.getPurchaseId() %>></td>
         <!-- ここで過去の購入履歴データを選択して投げれば処理楽になるのでは？ -->
         <%
