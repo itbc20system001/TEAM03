@@ -28,23 +28,23 @@
 <input type="submit" value="検索">
 </form>
 <table width="900">
-
 <%
   List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
 
   int k=0;
   for(ItemBean bean:itemList){
-	  if(k%3==0) {
-%>
-    <tr height="50">
+    if(k%3==0) {
+%>    <tr height="50">
     <%} %>
 
-<td>width="300" >
-<img alt="ItemText" src="img/<%=bean.getItemImageUrl() %>" width="300" height="300">
-    img src="<%=bean.getItemImageUrl() %>"
-    bean.getItemText()</td>
+<td width="300" >
+    <a href="/tappy/Item?itemCd=<%=bean.getItemCd()%>">
+      <img src="<%=bean.getItemImageUrl() %>">
+    </a>
+    <p><%= bean.getItemText()%></p>
+</td>
 
-<% }%>
+<% k+=1; }%>
 
 
 </table>
