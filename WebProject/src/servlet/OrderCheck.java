@@ -108,7 +108,7 @@ public class OrderCheck extends HttpServlet {
 
 
 		}
-		RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/orderCheck.jsp");
+		RequestDispatcher rdp = request.getRequestDispatcher("/tappy/OrderSearch");
 		rdp.forward(request, response);
 	}
 

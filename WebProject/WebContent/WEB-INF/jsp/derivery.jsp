@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="dao.MemberDAO" %>
+    <%@ page import="dao.MemberDAO, model.MemberBean" %>
+<%
+//MemberBean user = (MemberBean) session.getAttribute("user");
+MemberBean user = new MemberBean("suzuiti","鈴木","一郎","suzukisan","東京都","三鷹市の山の中","0120333906","hogehoge@hogehoge.com");
 
+%>
 <!DOCTYPE html>
 <html>
 <script type="text/javascript">
@@ -13,8 +17,8 @@ var dd = ("0"+date.getDate()).slice(-2);
 
 document.getElementById("today").value=yyyy+'-'+mm+'-'+dd;
 
-var dd = ("0"+date.getDate()).slice(-2);
-document.getElementById("today").value=yyyy+'-'+mm+'-'+dd;
+var dd = ("0"+date.getDate()-1).slice(-2);
+document.getElementById("limitpast").value=yyyy+'-'+mm+'-'+dd;
 
 </script>
 <head>
@@ -23,11 +27,11 @@ document.getElementById("today").value=yyyy+'-'+mm+'-'+dd;
 </head>
 <body>
 <form method="GET" action="/tappy/OrderComplete">
-<p><!-- ${user.prefecture} ${user.address} --></p><!--  配達場所：DAOでユーザー情報テーブルから引き出す　ラジオボタン-->
-<p>配達日：カレンダーフォーム</p>
-<input type="radio" name="send" value="today" min=""><!-- valueの中に住所のEL式入れたい -->
-<input type="date">
-<input type="submit" name="name" value="決定"><%--注文確定に飛ぶ --%>
+<p>配達先を指定してください：</p>
+<p><input type="radio" name="send" value="<%=user.getPrefecture()%> <%=user.getAddress()%>"></p>
+<p>配達日を指定してください：</p>
+<p><input type="date" value=today min=limitpast></p>
+<br><input type="submit" name="name" value="決定"><!-- 注文確定に飛ぶ -->
 <input type="submit" name="name" value="戻る"><!-- 作る必要はない、余裕あったら・・・？ -->
 
 </form>

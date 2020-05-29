@@ -1,9 +1,10 @@
+<%@page import="model.OrderDetailBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%--@ page import="pinyapinya" --%>
-    <%--
-    型 変数 = (型) session.getAttribute("????????????????????????????????????")
-    --%>
+    <%@ page import="java.util.List" %>
+    <%
+    List<OrderDetailBean> orderList = (List<OrderDetailBean>) session.getAttribute("orderList");
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,18 +24,18 @@
 <p>【合計値段を表示】</p>
 <br><p>以下、例</p><br>
 
-<%-- for (型 i : ???[]) {--%>
+<% for (OrderDetailBean odb : orderList) {%>
 
-	<img src="TapiocaBread.jpg" alt="タピオカドリンク・サーモンピンク味">
-
-	<p>タピオカドリンク・サーモンピンク味<br>【Mサイズ・マイルド、氷少、抹茶風味タピオカ、トッピング：生クリーム、鷹の爪】</p>
+	<!-- <img src="TapiocaBread.jpg" alt="タピオカドリンク・サーモンピンク味"> -->
+	
+	<p><br>【<%= %>・マイルド、氷少、抹茶風味タピオカ、トッピング：生クリーム、鷹の爪】</p>
 	<p>￥620 × 3</p>
 
 	<form method ="GET" action="/tappy/OrderCheck">
 	<br><input type="submit" name="name" value="取り消す"><%--スコープから取り除くメソッド --%>
 	<%-- <br><input type="submit" name="change" value="変更する"><%--商品ページに飛ばす？スコープから指定のデータ列変更できるようにする --%>--%>
 	</form>
-<%-- } --%>
+<% } %>
 	<h4>合計金額：￥1,860</h4>
 
 <form method ="GET" action="/tappy/OrderCheck"><%--Relay介さなくてもよい？ --%>
