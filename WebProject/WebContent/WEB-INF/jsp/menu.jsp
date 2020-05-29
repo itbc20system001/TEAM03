@@ -9,19 +9,6 @@
 <title>Tappy</title>
 </head>
 <body>
-<header>
-    <h1>Logo.img</h1>
-    <nav>
-
-      <ul>
-        <li><a href="/tappy/relay?action=menu">Menu</a></li>
-        <li><a href="/tappy/relay?action=contact">お問い合わせ</a></li>
-        <li><a href="/tappy/relay?action=userPage">My page</a></li>
-        <li><a href="/tappy/relay?action=login">Login</a></li>
-        <li><a href="/tappy/relay?action=register">会員登録</a></li>
-      </ul>
-    </nav>
-  </header>
 
 <form action="/Webproject/hogehoge" method="post">
 <input type="text" name="text">
@@ -46,16 +33,7 @@
 
 <% k+=1; }%>
 
+
 </table>
-<footer>
-    <ul>
-        <li><a href="/tappy/relay?action=menu">Menu</a></li>
-        <li><a href="/tappy/relay?action=contact">お問い合わせ</a></li>
-        <li><a href="/tappy/relay?action=userPage">My page</a></li>
-        <li><a href="/tappy/relay?action=login">Login</a></li>
-        <li><a href="/tappy/relay?action=register">会員登録</a></li>
-    </ul>
-    <h4>内容が空っぽに見えれば会社の情報など適当に</h4>
-  </footer>
 </body>
 </html>
