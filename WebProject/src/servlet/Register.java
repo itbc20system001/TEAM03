@@ -43,6 +43,12 @@ public class Register extends HttpServlet {
 		String tel = request.getParameter("tel");
 		String mail = request.getParameter("mail");
 
+		int passwordSize =password.length();
+
+		//パスワードの正規表現
+		if(password.matches("[a-zA-Z0-9]*")){
+			System.out.println("hogehoge");
+
 		//MemberBeanに受け取った情報を詰める
 		MemberBean mb = new MemberBean(userId, userLName, userFname, password, prefecture, address, tel, mail);
 
@@ -65,4 +71,5 @@ public class Register extends HttpServlet {
 
 	}
 
+}
 }
