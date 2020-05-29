@@ -1,6 +1,5 @@
 package dao;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +14,7 @@ public class PurchaseDAO extends DAO<PurchaseBean> {
 		return new PurchaseBean(
 				(String)record.get("user_id"),
 				(int)record.get("item_cd"),
-				(Date)record.get("purchase_date"),
+				(String)record.get("purchase_date"),
 				(int)record.get("purchase_quantity"),
 				(int)record.get("drink_size_cd"),
 				(int)record.get("drink_sugar_cd"),
@@ -38,7 +37,7 @@ public class PurchaseDAO extends DAO<PurchaseBean> {
 					PreparedStatement pStmt = conn.prepareStatement("INSERT INTO purchase_history VALUES (?,?,?,?,?,?,?,?,?,?)");
 					pStmt.setString(1, pb.getUserId());
 					pStmt.setInt(2, pb.getItem());//Cd???
-					pStmt.setDate(3, pb.getPurchaseDate());//Date
+					pStmt.setString(3, pb.getPurchaseDate());//Date
 					pStmt.setInt(4, pb.getPurchaseQuantity());
 					pStmt.setInt(5, pb.getDrinkSize());
 					pStmt.setInt(6, pb.getDrinkSugar());

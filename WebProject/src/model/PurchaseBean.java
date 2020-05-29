@@ -1,13 +1,12 @@
 package model;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 public class PurchaseBean implements Serializable {
 	private int purchaseId; //購入ID
 	private String userId; //ユーザーID
 	private int itemCd; //商品CD
-	private Date  purchaseDate; //購入日時
+	private String  purchaseDate; //購入日時
 	private int purchaseQuantity; //購入個数
 	private int drinkSize; //ドリンクサイズ
 	private int drinkSugar; //ドリンク甘さ
@@ -19,7 +18,7 @@ public class PurchaseBean implements Serializable {
 	public PurchaseBean() {
 	}
 
-	public PurchaseBean(String userId, int itemCd, Date purchaseDate, int purchaseQuantity, int drinkSize,
+	public PurchaseBean(String userId, int itemCd, String purchaseDate, int purchaseQuantity, int drinkSize,
 			int drinkSugar, int iceAmount, int tapiokaKind, int tapiokaAmount, int topping) {
 		super();
 		this.userId = userId;
@@ -34,7 +33,7 @@ public class PurchaseBean implements Serializable {
 		this.topping = topping;
 	}
 
-	public PurchaseBean(int purchaseId, String userId, int item, Date purchaseDate, int purchaseQuantity, int drinkSize,
+	public PurchaseBean(int purchaseId, String userId, int item, String purchaseDate, int purchaseQuantity, int drinkSize,
 			int drinkSugar, int iceAmount, int tapiokaKind, int tapiokaAmount, int topping) {
 		super();
 		this.purchaseId = purchaseId;
@@ -74,11 +73,11 @@ public class PurchaseBean implements Serializable {
 		this.itemCd = item;
 	}
 
-	public Date getPurchaseDate() {
+	public String getPurchaseDate() {
 		return purchaseDate;
 	}
 
-	public void setPurchaseDate(Date purchaseDate) {
+	public void setPurchaseDate(String purchaseDate) {
 		this.purchaseDate = purchaseDate;
 	}
 
