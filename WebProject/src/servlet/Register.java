@@ -28,6 +28,8 @@ public class Register extends HttpServlet {
 
 	}
 
+
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		//register.jspから登録情報を受け取る
@@ -50,13 +52,14 @@ public class Register extends HttpServlet {
 		boolean b = rl.execute(mb);
 
 		//OKなら会員登録完了画面へ、問題があればregister.jspに戻る
-		if (b = true) {
+		if (b == true) {
 			//これフォワードでなくリダイレクトしたほうがいいのでは…？
 			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/registerComplete.jsp");
 			d.forward(request, response);
 		} else {
 			//失敗したらもう一度登録画面へ
 			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
+			request.setAttribute("registerFailed", true);
 			d.forward(request, response);
 		}
 

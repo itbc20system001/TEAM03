@@ -11,8 +11,8 @@
 <h1>会員登録</h1>
 
 <!-- 会員登録に失敗したときに「失敗しました」メッセージを出したい -->
-<% if (request.getAttribute("loginFailed") != null){ %>
-ここにログインに失敗しました文字を入れる
+<% if (request.getAttribute("registerFailed") != null){ %>
+IDは既に使用済みです。別のIDを入力してください。
 <%} %>
 <form action="/tappy/Register" method="post">
 ユーザーID：<input type="text" name="user_id"><br>
