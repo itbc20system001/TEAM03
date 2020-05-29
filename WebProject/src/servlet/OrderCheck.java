@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.OrderDetailBean;
-import model.PurchaseBean;
 
 /**
  * Servlet implementation class OrderCheck
@@ -58,12 +57,16 @@ public class OrderCheck extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//商品コードはどのように送られてくるのか
-		System.out.println("hogehoge");
-		HttpSession session = request.getSession();
-		String[] purchaseIdList = request.getParameterValues("purchase_Id_List");
-		for(String str:purchaseIdList) {
-		System.out.println(str);
+
+		//再注文か、カスタマイズから飛んできたかを判断する
+		boolean isHistoryCheak = false;
+		if(request.getParameter("history").equals("再注文")) {
+			isHistoryCheak = true;
 		}
+		HttpSession session = request.getSession();
+
+
+
 		List<OrderDetailBean> orderList = (List<OrderDetailBean>)session.getAttribute("orderList");
 
 		if (orderList == null) {
@@ -87,17 +90,18 @@ public class OrderCheck extends HttpServlet {
 		session.setAttribute("orderList", orderList);//保存
 
 
-		boolean a = true;
 		//HttpSession session = request.getSession();  //上にもsession定義してあるのでコメントアウトしました
-		List<PurchaseBean> pHList = new ArrayList<>();
-		pHList = (List<PurchaseBean>) session.getAttribute("PurchaseHistoryList");
 
 		/*
 		 処理内容
-		 1．購入履歴からの場合はスコープから取得した
-		    情報をOrderCheck.jspに投げる
 		 */
-		if(a) {
+		if(isHistoryCheak) {
+			/*
+			1．購入履歴からの場合はスコープから取得した
+		    情報をOrderCheck.jspに投げる
+			 */
+			//履歴から注文された注文Idを取得
+			String[] purchaseIdList = request.getParameterValues("purchase_Id_List");
 
 		}else{/*
 
@@ -105,18 +109,9 @@ public class OrderCheck extends HttpServlet {
 		    情報を購入履歴のDBに保存してからorderCheck.jspに投げる
 		 */
 
-			if(request.getParameter("name").equals("history")) {
-				//HttpSession session = request.getSession();
-				//セッションスコープからインスタンス取得、p220から やり方が分からん・・・
-				//PurchaseHistoryBean ph =(PurchaseHistoryBean) session.getAttribute("")
-			}
-			if(request.getParameter("name").equals("customize")) {
-
-			}
-
-			RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/orderCheck.jsp");
-			rdp.forward(request, response);
 		}
-
+		RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/orderCheck.jsp");
+		rdp.forward(request, response);
 	}
+
 }
