@@ -46,7 +46,6 @@
 
 <% k+=1; }%>
 
-
 </table>
 <footer>
     <ul>
