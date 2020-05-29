@@ -6,13 +6,13 @@
 <title>Tappy</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 
 
   <div>
     <h4>中間内容はタピオカ写真など広告img</h4>
   </div>
 
-<jsp:include page="footer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>
