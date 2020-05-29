@@ -10,9 +10,9 @@
 <header>
 <table width="900" border="1">
       <tr height="130">
-      <a href="/tappy/WebContent/index.jsp">
+      <a href="/tappy/">
       <img src="/tappy/img/tappy_logo.png" height="120" ></a>
-      
+
     <nav>
       <ul>
         <li><a href="/tappy/relay?action=menu">Menu</a></li>
