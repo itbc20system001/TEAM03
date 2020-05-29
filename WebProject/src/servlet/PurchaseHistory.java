@@ -53,7 +53,6 @@ doPost(request, response);
 		List<PurchaseBean> historyList = new ArrayList<>();
 		PurchaseHistoryLogic phLogic = new PurchaseHistoryLogic();
 		historyList = phLogic.makeHistoryList(session);
-
 		session.setAttribute("PurchaseHistoryList", historyList);
 
 		RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/purchaseHistory.jsp");

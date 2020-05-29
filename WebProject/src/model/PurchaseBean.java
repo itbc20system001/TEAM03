@@ -6,7 +6,7 @@ public class PurchaseBean implements Serializable {
 	private int purchaseId; //購入ID
 	private String userId; //ユーザーID
 	private int itemCd; //商品CD
-	private String  purchaseDate; //購入日時
+	private String purchaseDate; //購入日時
 	private int purchaseQuantity; //購入個数
 	private int drinkSize; //ドリンクサイズ
 	private int drinkSugar; //ドリンク甘さ

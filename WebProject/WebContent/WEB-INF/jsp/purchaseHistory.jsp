@@ -18,7 +18,7 @@ List<PurchaseBean> checkList = new ArrayList<>();
   <br> 再注文とかするボタンをつけるのがよさげ？
   <br> どこまで表示するかはちょっと考えるかな
   <br>
-  <form action="/WebProject/OrderCheck" method="post">
+  <form action="/tappy/OrderCheck" method="post">
     <table border="1">
       <tr>
         <th>注文内容</th>
@@ -28,7 +28,7 @@ List<PurchaseBean> checkList = new ArrayList<>();
       	for (PurchaseBean i : phList) {
       %>
       <tr>
-        <td><%=i.getUserId()%></td>
+        <td><%=i.getUserId()%><br><%=i.getPurchaseId() %></td>
         <td><input type="checkbox" name="purchase_Id_List" value=<%=i.getPurchaseId() %>></td>
         <!-- ここで過去の購入履歴データを選択して投げれば処理楽になるのでは？ -->
         <%

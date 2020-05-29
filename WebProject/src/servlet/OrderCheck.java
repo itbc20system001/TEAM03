@@ -58,8 +58,12 @@ public class OrderCheck extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//商品コードはどのように送られてくるのか
+		System.out.println("hogehoge");
 		HttpSession session = request.getSession();
-		request.getParameterValues("purchase_Id_List");
+		String[] purchaseIdList = request.getParameterValues("purchase_Id_List");
+		for(String str:purchaseIdList) {
+		System.out.println(str);
+		}
 		List<OrderDetailBean> orderList = (List<OrderDetailBean>)session.getAttribute("orderList");
 
 		if (orderList == null) {
