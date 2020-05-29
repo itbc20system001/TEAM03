@@ -65,31 +65,6 @@ public class OrderCheck extends HttpServlet {
 		}
 		HttpSession session = request.getSession();
 
-
-
-		List<OrderDetailBean> orderList = (List<OrderDetailBean>)session.getAttribute("orderList");
-
-		if (orderList == null) {
-			orderList = new ArrayList<>();
-		}//空だったら新規ArrayList作る
-
-
-		int itemCd = 1;
-		int purchaseQuantity = 1;
-		int sizeCd = Integer.parseInt(request.getParameter("size"));
-		int sugarCd = Integer.parseInt(request.getParameter("sugar"));
-		int iceCd = Integer.parseInt(request.getParameter("ice"));
-		int typeCd = Integer.parseInt(request.getParameter("type"));
-		int amountCd = Integer.parseInt(request.getParameter("amount"));
-		int toppingCd = Integer.parseInt(request.getParameter("topping"));
-
-		OrderDetailBean orderDetail = new OrderDetailBean(itemCd, purchaseQuantity, sizeCd, sugarCd, iceCd, typeCd, amountCd, toppingCd);
-
-		orderList.add(orderDetail);
-
-		session.setAttribute("orderList", orderList);//保存
-
-
 		//HttpSession session = request.getSession();  //上にもsession定義してあるのでコメントアウトしました
 
 		/*
@@ -108,6 +83,29 @@ public class OrderCheck extends HttpServlet {
 		 2. customize.jspからの場合はスコープに格納されている
 		    情報を購入履歴のDBに保存してからorderCheck.jspに投げる
 		 */
+
+			List<OrderDetailBean> orderList = (List<OrderDetailBean>)session.getAttribute("orderList");
+
+			if (orderList == null) {
+				orderList = new ArrayList<>();
+			}//空だったら新規ArrayList作る
+
+
+			int itemCd = 1;
+			int purchaseQuantity = 1;
+			int sizeCd = Integer.parseInt(request.getParameter("size"));
+			int sugarCd = Integer.parseInt(request.getParameter("sugar"));
+			int iceCd = Integer.parseInt(request.getParameter("ice"));
+			int typeCd = Integer.parseInt(request.getParameter("type"));
+			int amountCd = Integer.parseInt(request.getParameter("amount"));
+			int toppingCd = Integer.parseInt(request.getParameter("topping"));
+
+			OrderDetailBean orderDetail = new OrderDetailBean(itemCd, purchaseQuantity, sizeCd, sugarCd, iceCd, typeCd, amountCd, toppingCd);
+
+			orderList.add(orderDetail);
+
+			session.setAttribute("orderList", orderList);//保存
+
 
 		}
 		RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/orderCheck.jsp");
