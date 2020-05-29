@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.OrderDetailBean;
 import model.PurchaseBean;
 
 /**
@@ -56,10 +57,34 @@ public class OrderCheck extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		//商品コードはどのように送られてくるのか
+		HttpSession session = request.getSession();
+
+		List<OrderDetailBean> orderList = (List<OrderDetailBean>)session.getAttribute("orderList");
+
+		if (orderList == null) {
+			orderList = new ArrayList<>();
+		}//空だったら新規ArrayList作る
+
+
+		int itemCd = 1;
+		int purchaseQuantity = 1;
+		int sizeCd = Integer.parseInt(request.getParameter("size"));
+		int sugarCd = Integer.parseInt(request.getParameter("sugar"));
+		int iceCd = Integer.parseInt(request.getParameter("ice"));
+		int typeCd = Integer.parseInt(request.getParameter("type"));
+		int amountCd = Integer.parseInt(request.getParameter("amount"));
+		int toppingCd = Integer.parseInt(request.getParameter("topping"));
+
+		OrderDetailBean orderDetail = new OrderDetailBean(itemCd, purchaseQuantity, sizeCd, sugarCd, iceCd, typeCd, amountCd, toppingCd);
+
+		orderList.add(orderDetail);
+
+		session.setAttribute("orderList", orderList);//保存
+
 
 		boolean a = true;
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();  //上にもsession定義してあるのでコメントアウトしました
 		List<PurchaseBean> pHList = new ArrayList<>();
 		pHList = (List<PurchaseBean>) session.getAttribute("PurchaseHistoryList");
 

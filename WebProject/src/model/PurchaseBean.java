@@ -1,7 +1,7 @@
 package model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 public class PurchaseBean implements Serializable {
 	//private int purchaseId; //購入ID
