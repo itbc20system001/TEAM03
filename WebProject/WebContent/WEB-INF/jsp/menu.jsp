@@ -15,6 +15,7 @@
 <input type="text" name="text">
 <input type="submit" value="検索">
 </form>
+
 <table width="900">
 <%
   List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
