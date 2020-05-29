@@ -24,7 +24,7 @@
   <br> 画面左側はドリンクの画像で右側でトッピング選択するとかがいいかな？
   <br> ドリンクのサイズ
   <br>
-  <form action="/Tappy/OrderCheck?itemCd=<%=item.getItemCd()%>" method="post">
+  <form action="/Tappy/OrderCheck" method="post">
     <select name="size">
       <%
       	for (CustomizeBean i : drinkSizeList) {
