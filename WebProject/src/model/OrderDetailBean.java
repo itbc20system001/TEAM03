@@ -1,7 +1,9 @@
 package model;
 
+import java.io.Serializable;
+
 //注文内容（商品とカスタマイズの内容）を表すBean
-public class OrderDetailBean {
+public class OrderDetailBean implements Serializable{
 
 	private int itemCd; //商品CD
 	private int purchaseQuantity; //購入個数
