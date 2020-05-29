@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class PurchaseBean implements Serializable {
-	//private int purchaseId; //購入ID
+	private int purchaseId; //購入ID
 	private String userId; //ユーザーID
 	private int itemCd; //商品CD
 	private Date  purchaseDate; //購入日時
@@ -19,10 +19,25 @@ public class PurchaseBean implements Serializable {
 	public PurchaseBean() {
 	}
 
-	public PurchaseBean(/*int purchaseId */ String userId, int item, Date purchaseDate, int purchaseQuantity, int drinkSize,
+	public PurchaseBean(String userId, int itemCd, Date purchaseDate, int purchaseQuantity, int drinkSize,
 			int drinkSugar, int iceAmount, int tapiokaKind, int tapiokaAmount, int topping) {
 		super();
-		//this.purchaseId = purchaseId;
+		this.userId = userId;
+		this.itemCd = itemCd;
+		this.purchaseDate = purchaseDate;
+		this.purchaseQuantity = purchaseQuantity;
+		this.drinkSize = drinkSize;
+		this.drinkSugar = drinkSugar;
+		this.iceAmount = iceAmount;
+		this.tapiokaKind = tapiokaKind;
+		this.tapiokaAmount = tapiokaAmount;
+		this.topping = topping;
+	}
+
+	public PurchaseBean(int purchaseId, String userId, int item, Date purchaseDate, int purchaseQuantity, int drinkSize,
+			int drinkSugar, int iceAmount, int tapiokaKind, int tapiokaAmount, int topping) {
+		super();
+		this.purchaseId = purchaseId;
 		this.userId = userId;
 		this.itemCd = item;
 		this.purchaseDate = purchaseDate;
@@ -35,13 +50,13 @@ public class PurchaseBean implements Serializable {
 		this.topping = topping;
 	}
 
-/*	public int getPurchaseId() {
+	public int getPurchaseId() {
 		return purchaseId;
 	}
 
 	public void setPurchaseId(int purchaseId) {
 		this.purchaseId = purchaseId;
-	}*/
+	}
 
 	public String getUserId() {
 		return userId;
