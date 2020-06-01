@@ -12,10 +12,7 @@
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 
-<form action="/Webproject/hogehoge" method="post">
-<input type="text" name="text">
-<input type="submit" value="検索">
-</form>
+
 
 <table width="400" style="text-align: center;">
 <%

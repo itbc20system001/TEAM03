@@ -62,60 +62,6 @@ html * {
 	box-sizing: border-box;
 }
 
-/* ヘッダーとフッダー(保留）*/
-.logo {
-	text-align: center;
-}
-
-/* .nav li {
-	display: inline;
-	list-style-type: none;
-}
-
-.nav ul {
-	margin: 0 0 0 0;
-}
-*/
-
-p {
-	line-height: 1.6;
-	color: #8c372b;
-}
 .error {
 	color: #ff0000;
-}
-a:link {
-	color: #d25833;
-}
-
-a:visited {
-	color: #d25833;
-}
-
-a:hover {
-	color: #e3937a;
-}
-
-a:active {
-	color: #ff6a3b;
-}
-
-.nav a:link {
-	color: #3c454d;
-	text-decoration: none;
-}
-
-.nav a:visited {
-	color: #3c454d;
-	text-decoration: none;
-}
-
-.nav a:hover {
-	color: #7b8dac;
-	text-decoration: none;
-}
-
-.nav a:active {
-	color: #5a9bc0;
-	text-decoration: none;
 }
