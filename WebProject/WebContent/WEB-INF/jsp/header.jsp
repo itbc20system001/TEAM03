@@ -6,6 +6,7 @@
     ul { width:800px; margin:0 auto;}
     ul li{list-style-type:none; float:left;  width:150px; margin-top:10px;}
     ul li a{color:#ffffff; text-decoration:none; font-size:20px;}
+    a{margin-left:20px;}
 </style>
 
 <header>
