@@ -17,6 +17,7 @@ List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
+ <div class="wrapper">
   <h1>購入履歴画面</h1>
   ユーザーIDとかを取ってきて表示
   <br> 再注文とかするボタンをつけるのがよさげ？
@@ -51,6 +52,7 @@ List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
     </table>
     <input type="submit" name="history" value="再注文">
   </form>
+  </div>
   <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>
