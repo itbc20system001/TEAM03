@@ -8,6 +8,12 @@ html {
 body {
 	background-color: #fffacd;
 	color: #8c372b;
+	margin:  0 auto;
+}
+
+.wrapper{
+	margin: 0 auto 0 auto;
+	max-width: 900px;
 }
 
 h1 {
