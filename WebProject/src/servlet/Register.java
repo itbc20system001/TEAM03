@@ -28,8 +28,6 @@ public class Register extends HttpServlet {
 
 	}
 
-
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		//register.jspから登録情報を受け取る
@@ -43,11 +41,22 @@ public class Register extends HttpServlet {
 		String tel = request.getParameter("tel");
 		String mail = request.getParameter("mail");
 
-		int passwordSize =password.length();
+		int passwordSize = password.length();
 
 		//パスワードの正規表現
-		if(password.matches("[a-zA-Z0-9]*")){
-			System.out.println("hogehoge");
+		if (!(password.matches("[a-zA-Z0-9]*"))) {
+			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
+			request.setAttribute("message", true);
+			d.forward(request, response);
+/*		} else if(){
+		//何か言ってた気がする
+			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
+			String message="何らかの処理";
+			request.setAttribute("message", message);
+			d.forward(request, response);*/
+
+			//合っていれば登録処理へ
+		}else {
 
 		//MemberBeanに受け取った情報を詰める
 		MemberBean mb = new MemberBean(userId, userLName, userFname, password, prefecture, address, tel, mail);
@@ -58,18 +67,18 @@ public class Register extends HttpServlet {
 		boolean b = rl.execute(mb);
 
 		//OKなら会員登録完了画面へ、問題があればregister.jspに戻る
-		if (b == true) {
+			if (b == true) {
 			//これフォワードでなくリダイレクトしたほうがいいのでは…？
 			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/registerComplete.jsp");
 			d.forward(request, response);
-		} else {
+			} else {
 			//失敗したらもう一度登録画面へ
 			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
 			request.setAttribute("registerFailed", true);
 			d.forward(request, response);
-		}
+			}
 
 	}
+	}
 
-}
 }
