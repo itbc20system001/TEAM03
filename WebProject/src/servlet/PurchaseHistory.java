@@ -19,7 +19,7 @@ import model.PurchaseHistoryLogic;
 /**
  * Servlet implementation class PuchaseHistory
  */
-@WebServlet("/PuchaseHistory")
+@WebServlet("/PurchaseHistory")
 public class PurchaseHistory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
