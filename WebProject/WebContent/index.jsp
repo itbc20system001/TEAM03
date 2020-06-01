@@ -4,13 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Tappy</title>
+
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 
 
-  <div>
-    <h4>中間内容はタピオカ写真など広告img</h4>
+  <div style="text-align: center;">
+    <img src="/tappy/img/index1.jpg">
   </div>
 
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>

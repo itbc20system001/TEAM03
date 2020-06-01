@@ -5,9 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  #menu {height:50px;}
+  ul li{list-style-type:none; float:left; margin-left:40px; }
+</style>
 </head>
 <body>
-<footer>
+<footer id="menu">
     <ul>
         <li><a href="/tappy/relay?action=menu">Menu</a></li>
         <li><a href="/tappy/relay?action=contact">お問い合わせ</a></li>
