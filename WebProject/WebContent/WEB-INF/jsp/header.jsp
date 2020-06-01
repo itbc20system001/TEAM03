@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
 
 <style>
-    #menu {height:50px; background-color:#b30f00;margin-bottom:50px}
-    ul { width:400px; margin:0 auto;}
-    ul li{list-style-type:none; float:left; margin-left:100px;}
+    #menu {height:50px; background-color:#b30f00;margin-bottom:50px;}
+    ul { width:800px; margin:0 auto;}
+    ul li{list-style-type:none; float:left;  width:150px; margin-top:10px;}
     ul li a{color:#ffffff; text-decoration:none; font-size:20px;}
 </style>
 
