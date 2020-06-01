@@ -19,7 +19,7 @@
         <li><a href="/tappy/relay?action=userPage">My page</a></li>
         <li><a href="/tappy/relay?action=login">Login</a></li>
     </ul><br>
-    <h4>内容が空っぽに見えれば会社の情報など適当に</h4>
+
   </footer>
 </body>
 </html>
