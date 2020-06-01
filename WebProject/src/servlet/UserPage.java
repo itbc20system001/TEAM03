@@ -26,8 +26,8 @@ public class UserPage extends HttpServlet {
 
 		//ログイン済だったらユーザーページ、そうでなければログインページに飛ぶ
 		HttpSession session = request.getSession();
-		if(session.getAttribute("userId") == null) {
-			RequestDispatcher d = request.getRequestDispatcher("/tappy/Login");
+		if(session.getAttribute("user") == null) {
+			RequestDispatcher d = request.getRequestDispatcher("/Login");
 			d.forward(request, response);
 		}else {
 		RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/userPage.jsp");

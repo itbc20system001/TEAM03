@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.MemberBean;
 import model.ModifyUserInfoLogic;
@@ -39,6 +40,8 @@ public class ModifyUserInfo extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+
 		//フォームから送られてきた変更情報をもとにMemberBeanを作成
 		request.setCharacterEncoding("UTF-8");
 		//String userId = request.getParameter("user_id");
@@ -58,7 +61,9 @@ public class ModifyUserInfo extends HttpServlet {
 		boolean isModifySucceeded =ModifyUserInfoLogic.modify(oldMember,newUser);
 
 		if(isModifySucceeded) {
-			//成功したらユーザーページにリダイレクト
+			//成功したら新しいユーザー情報をセッションスコープに保存
+			session.setAttribute("user", newUser);
+			//ユーザーページにリダイレクト
 			response.sendRedirect("/tappy/UserPage");
 		}
 		else {
