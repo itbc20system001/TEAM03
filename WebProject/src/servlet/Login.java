@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.InitializeLogic;
 import model.LoginLogic;
 import model.MemberBean;
 
@@ -50,6 +51,7 @@ public class Login extends HttpServlet {
 			//ログイン成功したら・・・
 			//ログインユーザーをセッションスコープに入れる
 			request.getSession().setAttribute("user", loginUser);
+			InitializeLogic.init(request, response);
 			//トップページにリダイレクト
 			response.sendRedirect("/tappy/");
 		}
