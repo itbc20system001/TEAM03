@@ -48,6 +48,12 @@ public class Relay extends HttpServlet {
 			d.forward(request, response);
 		}
 
+		if(request.getParameter("action").equals("logout")) {
+
+			RequestDispatcher d= request.getRequestDispatcher("/Logout");
+			d.forward(request, response);
+		}
+
 		if(request.getParameter("action").equals("register")) {
 
 			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/jsp/regiter.jsp");
