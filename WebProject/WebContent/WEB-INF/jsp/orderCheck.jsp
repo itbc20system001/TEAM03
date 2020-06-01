@@ -16,8 +16,8 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
+ <div class="wrapper">
 <h3>注文が新たに決定されました。</h3>
 <h3>以下の注文でよろしければ【注文確定】のボタン、</h3>
 <h3>追加でご注文される場合は【追加注文】のボタンを押してください。</h3>
@@ -48,7 +48,9 @@
 
   <!-- <img src="TapiocaBread.jpg" alt="タピオカドリンク・サーモンピンク味"> -->
 
-  <p><%=odrb.getItem().getItem()%><br>【<%=odrb.getDrinkSize().getCustomize()%>・<%=odrb.getDrinkSugar().getCustomize()%>・<%=odrb.getIceAmount().getCustomize()%>・<%=odrb.getTapiokaKind().getCustomize()%>・<%=odrb.getTapiokaAmount().getCustomize()%>・トッピング：<%=odrb.getTopping().getCustomize()%>】
+  <p><%=odrb.getItem().getItem()%><br>
+  <img src="<%=odrb.getItem().getItemImageUrl()  %>"><br>
+  【<%=odrb.getDrinkSize().getCustomize()%>・<%=odrb.getDrinkSugar().getCustomize()%>・<%=odrb.getIceAmount().getCustomize()%>・<%=odrb.getTapiokaKind().getCustomize()%>・<%=odrb.getTapiokaAmount().getCustomize()%>・トッピング：<%=odrb.getTopping().getCustomize()%>】
   </p>
   <p>
     金額：<%=odrb.getItem().getItemPrice()%>×<%=odrb.getPurchaseQuantity()%></p>
@@ -77,6 +79,7 @@
 <form method ="GET" action="/tappy/ItemList">
 <br><input type="submit" name="name" value="追加注文"> <%-- 商品一覧ページmenu.jsp--%>
 </form>
+</div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 
 </body>
