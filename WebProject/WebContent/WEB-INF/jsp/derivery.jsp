@@ -28,6 +28,7 @@ document.getElementById("limitpast").value=yyyy+'-'+mm+'-'+dd;
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
+ <div class="wrapper">
 <form method="GET" action="/tappy/OrderComplete">
 <p>配達先を指定してください：</p>
 <p><input type="radio" name="send" value="<%=user.getPrefecture()%> <%=user.getAddress()%>"></p>
@@ -37,6 +38,7 @@ document.getElementById("limitpast").value=yyyy+'-'+mm+'-'+dd;
 <input type="submit" name="name" value="戻る"><!-- 作る必要はない、余裕あったら・・・？ -->
 
 </form>
+</div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>

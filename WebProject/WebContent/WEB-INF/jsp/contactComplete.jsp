@@ -9,11 +9,12 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
-
+<div class="wrapper">
 <h2>お問い合わせを送信しました</h2>
 <p>お問い合わせ頂き、誠にありがとうございました。</p>
 <a href="/tappy/">トップページへ戻る</a>
 
+</div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>

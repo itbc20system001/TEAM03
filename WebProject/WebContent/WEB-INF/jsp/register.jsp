@@ -9,6 +9,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
+ <div class="wrapper">
 <h1>会員登録</h1>
 
 <!-- 会員登録に失敗したときに「失敗しました」メッセージを出したい -->
@@ -31,6 +32,7 @@
 
 
 </form>
+</div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>

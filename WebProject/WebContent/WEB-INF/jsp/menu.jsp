@@ -16,6 +16,7 @@ table{text-align: center;}
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+ <div class="wrapper">
 
 <table width="400">
 <%
@@ -38,6 +39,7 @@ table{text-align: center;}
 
 
 </table>
+</div>
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

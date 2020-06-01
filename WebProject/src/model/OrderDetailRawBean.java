@@ -3,12 +3,16 @@ package model;
 import java.io.Serializable;
 
 public class OrderDetailRawBean implements Serializable{
+
+	private static int countId=0;
+
 	@Override
 	public String toString() {
 		return "OrderDetailRawBean [item=" + item + ", purchaseQuantity=" + purchaseQuantity + ", drinkSize="
 				+ drinkSize + ", drinkSugar=" + drinkSugar + ", iceAmount=" + iceAmount + ", tapiokaKind=" + tapiokaKind
 				+ ", tapiokaAmount=" + tapiokaAmount + ", topping=" + topping + "]";
 	}
+	private int id;
 	private ItemBean item;
 	private int purchaseQuantity;
 	private CustomizeBean drinkSize;
@@ -26,6 +30,9 @@ public class OrderDetailRawBean implements Serializable{
 	public OrderDetailRawBean(ItemBean item, int purchaseQuantity, CustomizeBean drinkSize, CustomizeBean drinkSugar,
 			CustomizeBean iceAmount, CustomizeBean tapiokaKind, CustomizeBean tapiokaAmount, CustomizeBean topping) {
 		super();
+
+		this.id = countId;
+		countId++;
 		this.item = item;
 		this.purchaseQuantity = purchaseQuantity;
 		this.drinkSize = drinkSize;
@@ -35,6 +42,11 @@ public class OrderDetailRawBean implements Serializable{
 		this.tapiokaAmount = tapiokaAmount;
 		this.topping = topping;
 	}
+	public int getId() {
+		return id;
+	}
+
+
 	public ItemBean getItem() {
 		return item;
 	}

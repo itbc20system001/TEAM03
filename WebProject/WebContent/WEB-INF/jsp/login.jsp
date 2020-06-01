@@ -9,6 +9,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
+ <div class="wrapper">
 <h1>ログイン</h1>
 
 <% if (request.getAttribute("loginFailed") != null){ %>
@@ -27,6 +28,7 @@
   <a href="/tappy/Register">会員登録</a>
 
 </form>
+</div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>
