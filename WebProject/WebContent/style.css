@@ -42,6 +42,16 @@ h2 {
 	width: 500px;
 }
 
+/*item.jsp*/
+.menu-item{
+	display: flex;
+	border-bottom: 1px dashed #bec2c7;
+	padding: 20px 8px;
+}
+.menu-photo{
+	margin-right:16px;
+}
+
 html * {
 	box-sizing: border-box;
 }
