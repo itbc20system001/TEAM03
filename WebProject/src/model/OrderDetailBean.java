@@ -47,6 +47,13 @@ public class OrderDetailBean implements Serializable{
 		return drinkSize;
 	}
 
+	@Override
+	public String toString() {
+		return "OrderDetailBean [itemCd=" + itemCd + ", purchaseQuantity=" + purchaseQuantity + ", drinkSize="
+				+ drinkSize + ", drinkSugar=" + drinkSugar + ", iceAmount=" + iceAmount + ", tapiokaKind=" + tapiokaKind
+				+ ", tapiokaAmount=" + tapiokaAmount + ", topping=" + topping + "]";
+	}
+
 	public void setDrinkSize(int drinkSize) {
 		this.drinkSize = drinkSize;
 	}

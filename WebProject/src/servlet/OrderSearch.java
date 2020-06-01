@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import model.CustomizeBean;
 import model.ItemBean;
 import model.OrderDetailBean;
+import model.OrderDetailRawBean;
 
 /**
  * Servlet implementation class OrderSearch
@@ -25,7 +27,7 @@ public class OrderSearch extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		List<ItemBean> itemList = (List<ItemBean>) session.getAttribute("itemList");
@@ -38,6 +40,11 @@ public class OrderSearch extends HttpServlet {
 		List<CustomizeBean> toppingList = (List<CustomizeBean>) session.getAttribute("toppingList");
 
 		List<OrderDetailBean> orderList = (List<OrderDetailBean>) session.getAttribute("orderList");
+
+		List<OrderDetailRawBean> rawOrderList = new ArrayList<>();
+		orderList.forEach(System.out::println);
+
+
 
 		for (OrderDetailBean order : orderList) {
 
@@ -67,12 +74,53 @@ public class OrderSearch extends HttpServlet {
 
 			CustomizeBean foundIceAmount = null;
 			for (CustomizeBean iceAmount : iceList) {
-				if (order.getDrinkSugar() == drinkSugar.getCode()) {
-					 foundDrinkSugar = drinkSugar;
+				if (order.getIceAmount() == iceAmount.getCode()) {
+					 foundIceAmount = iceAmount;
 					break;
 				}
 			}
+
+			CustomizeBean foundTapiokaKind = null;
+			for (CustomizeBean tapiokaKind : tapiokaTypeList) {
+				if (order.getTapiokaKind() == tapiokaKind.getCode()) {
+					 foundTapiokaKind = tapiokaKind;
+					break;
+				}
+			}
+
+			CustomizeBean foundTapiokaAmount = null;
+			for (CustomizeBean tapiokaAmount : tapiokaAmountList) {
+				if (order.getDrinkSugar() == tapiokaAmount.getCode()) {
+					 foundTapiokaAmount= tapiokaAmount;
+					break;
+				}
+			}
+			CustomizeBean foundTopping = null;
+			for (CustomizeBean topping : toppingList) {
+				if (order.getDrinkSugar() == topping.getCode()) {
+					foundTopping = topping;
+					break;
+				}
+			}
+
+			OrderDetailRawBean rawOrder= new  OrderDetailRawBean(
+					foundItem,
+					order.getPurchaseQuantity(),
+					foundDrinkSize,
+					foundDrinkSugar,
+					foundIceAmount,
+					foundTapiokaKind,
+					foundTapiokaAmount,
+					foundTopping
+					);
+
+			rawOrderList.add(rawOrder);
+
 		}
+
+		rawOrderList.forEach(System.out::println);
+
+		session.setAttribute("rawOrderList", rawOrderList);
 
 		RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/orderCheck.jsp");
 		rdp.forward(request, response);
