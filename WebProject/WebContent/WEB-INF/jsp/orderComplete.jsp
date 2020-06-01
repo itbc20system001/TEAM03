@@ -9,7 +9,7 @@
 <body>
 ご注文が確定、完了いたしました。
 ご利用ありがとうございます。
-<form method="GET" action="/tappy/menu.jsp">
+<form method="GET" action="/tappy/">
 <input type="submit" name="void" value="トップページに戻る">
 </form>
 </body>
