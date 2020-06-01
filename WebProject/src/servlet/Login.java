@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.InitializeLogic;
 import model.LoginLogic;
@@ -41,6 +42,7 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
+		HttpSession session = request.getSession();
 
 		MemberBean loginUser =  LoginLogic.login(
 				request.getParameter("user_id"),
@@ -53,7 +55,12 @@ public class Login extends HttpServlet {
 			request.getSession().setAttribute("user", loginUser);
 			InitializeLogic.init(request, response);
 			//トップページにリダイレクト
-			response.sendRedirect("/tappy/");
+			if(session.getAttribute("isJumpFromCustomize") == null) {
+				response.sendRedirect("/tappy/");
+			} else{
+				response.sendRedirect("/tappy/OrderCheck");
+			}
+
 		}
 		else {
 			//失敗したら・・・
@@ -63,5 +70,7 @@ public class Login extends HttpServlet {
 			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		}
 	}
+
+
 
 }

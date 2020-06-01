@@ -9,6 +9,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+<div class="wrapper">
 <h1>お問い合わせ</h1>
 <form method="post" action="/tappy/ContactSend">
 	<div>
@@ -44,6 +45,7 @@
 	</div>
 
 </form>
+</div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>

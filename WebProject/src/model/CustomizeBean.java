@@ -3,6 +3,12 @@ package model;
 import java.io.Serializable;
 
 public class CustomizeBean implements Serializable{
+	@Override
+	public String toString() {
+		return "CustomizeBean [code=" + code + ", customize=" + customize + "]";
+	}
+
+
 	private int code;
 	private String customize;
 

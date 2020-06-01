@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="model.CustomizeBean,java.util.List,model.ItemBean"%>
+<%@page import="model.CustomizeBean, java.util.List, model.ItemBean"%>
 
 <%
 	List<CustomizeBean> iceList = (List<CustomizeBean>) session.getAttribute("iceList");
@@ -21,13 +21,21 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
-  <h1>トッピング画面</h1>
-  個別注文画面から遷移
+ <div class="wrapper">
+
+  <h1>トッピング</h1>
+   <div class="menu-item">
+    <div class="menu-photo">
+     <img src="<%=item.getItemImageUrl()%>">
+    </div>
+    <div class="menu-text">
+
+  選択された商品：<%=item.getItem()%>
   <br> 画面左側はドリンクの画像で右側でトッピング選択するとかがいいかな？
   <br> ドリンクのサイズ
   <br>
   <form action="/tappy/OrderCheck?itemCd=<%= request.getParameter("itemCd") %>" method="post">
-    <select name="size">
+    <select name="size" style="width:150px">
       <%
       	for (CustomizeBean i : drinkSizeList) {
       %>
@@ -35,7 +43,7 @@
       <%
       	}
       %>
-    </select><br>甘さ<br> <select name="sugar">
+    </select><br>甘さ<br> <select name="sugar" style="width:150px">
       <%
       	for (CustomizeBean i : sugarList) {
       %>
@@ -43,7 +51,7 @@
       <%
       	}
       %>
-    </select> <br>氷の量<br> <select name="ice">
+    </select> <br>氷の量<br> <select name="ice" style="width:150px">
       <%
       	for (CustomizeBean i : iceList) {
       %>
@@ -51,7 +59,7 @@
       <%
       	}
       %>
-    </select> <br>タピオカの種類<br> <select name="type">
+    </select> <br>タピオカの種類<br> <select name="type" style="width:150px">
       <%
       	for (CustomizeBean i : tapiokaTypeList) {
       %>
@@ -59,7 +67,7 @@
       <%
       	}
       %>
-    </select> <br>タピオカの量<br> <select name="amount">
+    </select> <br>タピオカの量<br> <select name="amount" style="width:150px">
       <%
       	for (CustomizeBean i : tapiokaAmountList) {
       %>
@@ -67,7 +75,7 @@
       <%
       	}
       %>
-    </select> <br>トッピング(複数選ぶならチェックボックスかなぁ)<br> <select name="topping">
+    </select> <br>トッピング<br> <select name="topping" style="width:150px">
       <%
       	for (CustomizeBean i : toppingList) {
       %>
@@ -78,6 +86,9 @@
     </select> <br>
     <input name="customize" type="submit" value="決定">
   </form>
+    </div>
+   </div>
+  </div>
   <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>

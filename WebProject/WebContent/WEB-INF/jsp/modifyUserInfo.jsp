@@ -14,6 +14,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
+ <div class="wrapper">
 <h1>ユーザー情報の変更</h1>
 <% if(request.getAttribute("modifyFailed") != null) {%>
 <h3>ユーザー情報の変更に失敗</h3>
@@ -50,6 +51,7 @@
   <a href="/tappy/UserPage">キャンセル</a>
 
 </form>
+</div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>

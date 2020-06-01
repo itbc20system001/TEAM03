@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import model.CustomizeBean;
 import model.CustomizeLogic;
+import model.ItemBean;
 
 /**
  * Servlet implementation class Customize
@@ -76,6 +77,19 @@ public class Customize extends HttpServlet {
 		session.setAttribute("sugarList", sugarList);
 		session.setAttribute("toppingList", toppingList);
 
+		List<ItemBean> itemList = (List<ItemBean>) session.getAttribute("itemList");
+		//【変更】セッションスコープから情報を取ってくる
+		//ItemBean item;
+		//for
+		String itemCd = request.getParameter("itemCd");
+		for(ItemBean itemBean:itemList) {
+			int i = itemBean.getItemCd();
+			if(String.valueOf(i).equals(itemCd)) {
+			//	item = itemBean;
+				request.setAttribute("item", itemBean);
+				break;
+			}
+		}
 		RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/customize.jsp");
 		rdp.forward(request, response);
 	}

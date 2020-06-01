@@ -9,9 +9,10 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
-
+ <div class="wrapper">
 <h1>ログアウトしました</h1>
 <a href="/tappy/">トップに戻る</a>
+</div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>

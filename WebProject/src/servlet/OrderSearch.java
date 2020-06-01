@@ -24,6 +24,13 @@ import model.OrderDetailRawBean;
 public class OrderSearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		doPost(request,response);
+	}
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -47,6 +54,11 @@ public class OrderSearch extends HttpServlet {
 
 
 		for (OrderDetailBean order : orderList) {
+
+			if(order == null) {
+				rawOrderList.add(null);
+				continue;
+			}
 
 			ItemBean foundItem = null;
 			for (ItemBean item : itemList) {
@@ -90,14 +102,14 @@ public class OrderSearch extends HttpServlet {
 
 			CustomizeBean foundTapiokaAmount = null;
 			for (CustomizeBean tapiokaAmount : tapiokaAmountList) {
-				if (order.getDrinkSugar() == tapiokaAmount.getCode()) {
+				if (order.getTapiokaAmount() == tapiokaAmount.getCode()) {
 					 foundTapiokaAmount= tapiokaAmount;
 					break;
 				}
 			}
 			CustomizeBean foundTopping = null;
 			for (CustomizeBean topping : toppingList) {
-				if (order.getDrinkSugar() == topping.getCode()) {
+				if (order.getTopping() == topping.getCode()) {
 					foundTopping = topping;
 					break;
 				}
@@ -113,6 +125,8 @@ public class OrderSearch extends HttpServlet {
 					foundTapiokaAmount,
 					foundTopping
 					);
+
+			System.out.println(rawOrder);
 
 			rawOrderList.add(rawOrder);
 
