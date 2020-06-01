@@ -34,12 +34,11 @@ public class OrderCheck extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String name = request.getParameter("name");
+		request.getRequestDispatcher("/OrderSearch").forward(request, response);
+/*		String name = request.getParameter("name");
 		String fPath = "WEB-INF/jsp/orderCheck.jsp";
 		if (name == null) {
 
@@ -55,7 +54,7 @@ public class OrderCheck extends HttpServlet {
 			fPath = "WEB-INF/jsp/menu.jsp";
 		}
 		RequestDispatcher rdp = request.getRequestDispatcher(fPath);
-		rdp.forward(request, response);
+		rdp.forward(request, response);*/
 	}
 
 	/**
@@ -159,7 +158,9 @@ public class OrderCheck extends HttpServlet {
 		session.setAttribute("orderList", orderList);//保存
 
 		if (session.getAttribute("user") == null) {
+			session.setAttribute("isJumpFromCustomize", true);
 			response.sendRedirect("/tappy/Login");
+
 		} else {
 
 			RequestDispatcher rdp = request.getRequestDispatcher("/OrderSearch");
