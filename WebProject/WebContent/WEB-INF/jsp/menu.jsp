@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Tappy</title>
-<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
@@ -17,7 +16,7 @@
 <input type="submit" value="検索">
 </form>
 
-<table width="900">
+<table width="400">
 <%
   List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
 
@@ -27,9 +26,9 @@
 %>    <tr height="50">
     <%} %>
 
-<td width="300" >
+<td width="100" >
     <a href="/tappy/Item?itemCd=<%=bean.getItemCd()%>">
-      <img src="<%=bean.getItemImageUrl() %>">
+      <img src="<%=bean.getItemImageUrl() %>" style="min-height:428px; max-width:500px;">
     </a>
     <p><%= bean.getItemText()%></p>
 </td>
