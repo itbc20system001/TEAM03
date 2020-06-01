@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="style.css">
 <style type="text/css">
 a { text-decoration:none }
-p{font-size:20px; color:#b30f00;}
-table{text-align: center;}
+p{font-size:20px; color:#b30f00; text-align:center;}
+table{margin:0 auto;}
 </style>
 </head>
 <body>
