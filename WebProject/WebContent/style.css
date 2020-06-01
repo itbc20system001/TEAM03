@@ -46,12 +46,12 @@ html * {
 	box-sizing: border-box;
 }
 
-/* ヘッダーとフッダー*/
+/* ヘッダーとフッダー(保留）*/
 .logo {
 	text-align: center;
 }
 
-.nav li {
+/* .nav li {
 	display: inline;
 	list-style-type: none;
 }
@@ -59,6 +59,7 @@ html * {
 .nav ul {
 	margin: 0 0 0 0;
 }
+*/
 
 p {
 	line-height: 1.6;

@@ -10,8 +10,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Tappy</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <h1>ユーザー情報の変更</h1>
 <% if(request.getAttribute("modifyFailed") != null) {%>
 <h3>ユーザー情報の変更に失敗</h3>
@@ -48,5 +50,6 @@
   <a href="/tappy/UserPage">キャンセル</a>
 
 </form>
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>

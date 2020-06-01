@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <h1>マイページ</h1>
 
 <!-- リレーを介してmodifyUserInfoへ -->
@@ -31,6 +32,6 @@
 
 
 
-
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>

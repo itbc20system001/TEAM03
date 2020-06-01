@@ -17,8 +17,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Tappy</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
   <h1>トッピング画面</h1>
   個別注文画面から遷移
   <br> 画面左側はドリンクの画像で右側でトッピング選択するとかがいいかな？
@@ -76,5 +78,6 @@
     </select> <br>
     <input name="customize" type="submit" value="決定">
   </form>
+  <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>

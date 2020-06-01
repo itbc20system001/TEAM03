@@ -20,10 +20,6 @@
     </a>
 <p>   商品説明： <%= item.getItemText()%></p>
 
-スコープから値をとってきて、
-商品名、画像、説明を出力
-→スコープからではないらしい
-
 <!-- Customizeサーブレットへ値を投げる-->
 <form action="/tappy/Customize?itemCd=<%=item.getItemCd()%>" method="post">
 <input type="submit" value="この商品を選択">
