@@ -93,7 +93,7 @@ public class OrderCheck extends HttpServlet {
 			}//空だったら新規ArrayList作る
 
 
-			int itemCd = 1;
+			int itemCd = Integer.parseInt(request.getParameter("itemCd"));
 			int purchaseQuantity = 1;
 			int sizeCd = Integer.parseInt(request.getParameter("size"));
 			int sugarCd = Integer.parseInt(request.getParameter("sugar"));
@@ -110,8 +110,14 @@ public class OrderCheck extends HttpServlet {
 
 
 		}
+
+		if(session.getAttribute("user")==null) {
+			response.sendRedirect("/tappy/Login");
+		}else {
+
 		RequestDispatcher rdp = request.getRequestDispatcher("/OrderSearch");
 		rdp.forward(request, response);
+		}
 	}
 
 }
