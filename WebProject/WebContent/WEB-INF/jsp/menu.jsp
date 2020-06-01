@@ -8,13 +8,16 @@
 <meta charset="UTF-8">
 <title>Tappy</title>
 <link rel="stylesheet" href="style.css">
+<style type="text/css">
+a { text-decoration:none }
+p{font-size:20px; color:#b30f00;}
+table{text-align: center;}
+</style>
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 
-
-
-<table width="400" style="text-align: center;">
+<table width="400">
 <%
   List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
 
@@ -27,8 +30,8 @@
 <td width="100" >
     <a href="/tappy/Item?itemCd=<%=bean.getItemCd()%>">
       <img src="<%=bean.getItemImageUrl() %>" style="height:450px; width:500px;">
+    <p><strong><%= bean.getItem()%> </strong></p>
     </a>
-    <p><%= bean.getItem()%></p>
 </td>
 
 <% k+=1; }%>
