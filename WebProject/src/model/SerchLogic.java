@@ -14,4 +14,10 @@ public class SerchLogic {
 
 		return foundItem.isEmpty() ? null : foundItem.get(0);
 	}
+
+	public static <T> List<T> delete(List<T> list, Function<T,Boolean> p) {
+		return list.stream()
+				.filter(item -> ! p.apply(item))
+				.collect(Collectors.toList());
+	}
 }

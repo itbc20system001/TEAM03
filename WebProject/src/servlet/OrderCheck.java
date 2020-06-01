@@ -145,6 +145,8 @@ public class OrderCheck extends HttpServlet {
 			int amountCd = Integer.parseInt(request.getParameter("amount"));
 			int toppingCd = Integer.parseInt(request.getParameter("topping"));
 
+			//Arrays.asList(sizeCd,sugarCd,iceCd,typeCd,amountCd,toppingCd).forEach(System.out::println);
+
 			OrderDetailBean orderDetail = new OrderDetailBean(itemCd, purchaseQuantity, sizeCd, sugarCd, iceCd, typeCd,
 					amountCd, toppingCd);
 
