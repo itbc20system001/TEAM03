@@ -10,9 +10,11 @@
 <body>
 
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
+ <div class="wrapper">
 ご注文が確定、完了いたしました。<br>
 ご利用ありがとうございます。<br>
 <a href="/tappy/">トップページへ戻る</a>
+</div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 
 </body>

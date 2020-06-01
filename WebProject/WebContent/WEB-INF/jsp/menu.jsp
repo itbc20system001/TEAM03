@@ -11,6 +11,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+ <div class="wrapper">
 
 <form action="/Webproject/hogehoge" method="post">
 <input type="text" name="text">
@@ -38,6 +39,7 @@
 
 
 </table>
+</div>
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

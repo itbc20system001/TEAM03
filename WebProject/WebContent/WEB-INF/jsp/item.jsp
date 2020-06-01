@@ -9,7 +9,7 @@
 </head>
 <body>
   <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
-
+	 <div class="wrapper">
   <%
   	ItemBean item = (ItemBean) request.getAttribute("item");
   %>
@@ -31,7 +31,7 @@
   </form>
   </div>
   </div>
-
+  </div>
   <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>
