@@ -9,11 +9,9 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
-ご注文が確定、完了いたしました。
-ご利用ありがとうございます。
-<form method="GET" action="/tappy/menu.jsp">
-<input type="submit" name="void" value="トップページに戻る">
-</form>
+ご注文が確定、完了いたしました。<br>
+ご利用ありがとうございます。<br>
+<a href="/tappy/">トップページへ戻る</a>
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>
