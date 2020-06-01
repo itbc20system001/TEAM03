@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Tappy</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <h1>マイページ</h1>
@@ -18,13 +19,15 @@
 
 <% MemberBean user = (MemberBean)session.getAttribute("user");%>
 <h2>ユーザー情報</h2>
-ID：<%=user.getUserId() %><br>
+
+<p>ID：<%=user.getUserId() %><br>
 姓：<%=user.getUserLName() %><br>
 名：<%=user.getUserFName() %><br>
 住所（都道府県）：<%=user.getPrefecture() %><br>
 住所（市以下）：<%=user.getAddress() %><br>
 電話番号：<%=user.getTel() %><br>
 メールアドレス：<%=user.getMail() %><br>
+</p>
 
 
 
