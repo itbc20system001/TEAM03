@@ -5,17 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Tappy</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- ここにヘッダー？-->
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <h1>会員登録</h1>
 
 <!-- 会員登録に失敗したときに「失敗しました」メッセージを出したい -->
 <% if (request.getAttribute("message") != null){%>
-パスワードに使用できるのは大小アルファベット、半角数字のみです
+<div class="error">パスワードに使用できるのは大小アルファベット、半角数字のみです</div>
 <%} %>
 <% if (request.getAttribute("registerFailed") != null){ %>
-IDは既に使用済みです。別のIDを入力してください。
+<div class="error">IDは既に使用済みです。別のIDを入力してください。</div>
 <%} %>
 <form action="/tappy/Register" method="post">
 ユーザーID：<input type="text" name="user_id"><br>
@@ -30,6 +31,6 @@ IDは既に使用済みです。別のIDを入力してください。
 
 
 </form>
-
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>

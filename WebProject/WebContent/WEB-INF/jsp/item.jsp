@@ -6,18 +6,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Tappy</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>商品個別画面</h1>
-<!--  -->
-<% ItemBean item = (ItemBean)request.getAttribute("item");%>
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 
-  <p><%=item.getItem()%></p>
-  <p><%=item.getItemPrice()%></p>
+<% ItemBean item = (ItemBean)request.getAttribute("item");%>
+<h1><%=item.getItem()%></h1>
+
+  <p>商品価格：\<%=item.getItemPrice()%></p>
   <a href="/tappy/Item?itemCd=<%=item.getItemCd()%>">
       <img src="<%=item.getItemImageUrl() %>">
     </a>
-    <p><%= item.getItemText()%></p>
+<p>   商品説明： <%= item.getItemText()%></p>
 
 スコープから値をとってきて、
 商品名、画像、説明を出力
@@ -27,5 +28,6 @@
 <form action="/tappy/Customize?itemCd=<%=item.getItemCd()%>" method="post">
 <input type="submit" value="この商品を選択">
 </form>
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>
