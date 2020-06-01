@@ -50,7 +50,9 @@ List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
         %>
       </tr>
     </table>
+
     <input type="submit" name="history" value="再注文">
+
   </form>
   </div>
   <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
