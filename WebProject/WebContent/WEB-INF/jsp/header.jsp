@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-<table width="900" >
+<table width="1000">
       <tr height="130">
       <a href="/tappy/">
       <img src="/tappy/img/tappy_logo.png" height="120" ></a>
