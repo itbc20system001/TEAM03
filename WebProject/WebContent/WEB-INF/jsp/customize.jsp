@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="model.CustomizeBean,java.util.List,model.ItemBean"%>
+<%@page import="model.CustomizeBean, java.util.List, model.ItemBean"%>
 
 <%
 	List<CustomizeBean> iceList = (List<CustomizeBean>) session.getAttribute("iceList");
@@ -22,8 +22,15 @@
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
  <div class="wrapper">
-  <h1>トッピング画面</h1>
-  個別注文画面から遷移
+
+  <h1>トッピング</h1>
+   <div class="menu-item">
+    <div class="menu-photo">
+     <img src="<%=item.getItemImageUrl()%>">
+    </div>
+    <div class="menu-text">
+
+  選択された商品：<%=item.getItem()%>
   <br> 画面左側はドリンクの画像で右側でトッピング選択するとかがいいかな？
   <br> ドリンクのサイズ
   <br>
@@ -79,6 +86,8 @@
     </select> <br>
     <input name="customize" type="submit" value="決定">
   </form>
+    </div>
+   </div>
   </div>
   <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
