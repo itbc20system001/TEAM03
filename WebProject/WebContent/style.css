@@ -51,7 +51,6 @@ h2 {
 /*item.jsp*/
 .menu-item{
 	display: flex;
-	border-bottom: 1px dashed #bec2c7;
 	padding: 20px 8px;
 }
 .menu-photo{
