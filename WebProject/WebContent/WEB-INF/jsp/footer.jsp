@@ -5,20 +5,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="style.css">
 <style>
-  #menu {height:50px;}
+  #menu1 {height:50px;border-top: 3px dotted #b30f00; margin-top:50px;padding-top: 30px;}
   ul li{list-style-type:none; float:left; margin-left:40px; }
+  #menu1 ul li a{color:#f2822c;}
 </style>
 </head>
 <body>
-<footer id="menu">
+<footer id="menu1" >
     <ul>
         <li><a href="/tappy/relay?action=menu">Menu</a></li>
         <li><a href="/tappy/relay?action=contact">お問い合わせ</a></li>
         <li><a href="/tappy/relay?action=userPage">My page</a></li>
         <li><a href="/tappy/relay?action=login">Login</a></li>
-    </ul>
+    </ul><br>
     <h4>内容が空っぽに見えれば会社の情報など適当に</h4>
   </footer>
 </body>

@@ -1,24 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 
 <style>
-    #menu{height:50px; background-color:#b30f00; }
-    ul li{list-style-type:none; float:left; margin-left:40px; }
-    ul li a{color:#ffffff; text-decoration:none;}
+    #menu {height:50px; background-color:#b30f00;margin-bottom:50px}
+    ul { width:400px; margin:0 auto;}
+    ul li{list-style-type:none; float:left; margin-left:100px;}
+    ul li a{color:#ffffff; text-decoration:none; font-size:20px;}
 </style>
 
-</head>
-<body>
 <header>
-<table width="1000">
-      <tr height="50">
+
+
       <a href="/tappy/">
-      <h1 id="logo"><img src="/tappy/img/tappy_logo.png" height="120" ></a>
+      <img src="/tappy/img/tappy_logo.png" height="120" ></a>
 
       <nav id="menu">
       <ul>
@@ -29,7 +23,5 @@
       </ul>
     </nav>
 
-  </header>
-  </table>
-</body>
-</html>
+
+</header>

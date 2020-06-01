@@ -8,6 +8,12 @@ html {
 body {
 	background-color: #fffacd;
 	color: #8c372b;
+	margin:  0 auto;
+}
+
+.wrapper{
+	margin: 0 auto 0 auto;
+	max-width: 900px;
 }
 
 h1 {
@@ -42,16 +48,26 @@ h2 {
 	width: 500px;
 }
 
+/*item.jsp*/
+.menu-item{
+	display: flex;
+	border-bottom: 1px dashed #bec2c7;
+	padding: 20px 8px;
+}
+.menu-photo{
+	margin-right:16px;
+}
+
 html * {
 	box-sizing: border-box;
 }
 
-/* ヘッダーとフッダー*/
+/* ヘッダーとフッダー(保留）*/
 .logo {
 	text-align: center;
 }
 
-.nav li {
+/* .nav li {
 	display: inline;
 	list-style-type: none;
 }
@@ -59,6 +75,7 @@ html * {
 .nav ul {
 	margin: 0 0 0 0;
 }
+*/
 
 p {
 	line-height: 1.6;

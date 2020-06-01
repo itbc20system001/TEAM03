@@ -5,12 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Tappy</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <h1>登録が完了しました</h1>
 
 <!-- リレーを介してログイン画面へ飛ぶ -->
 <a href="/tappy/relay?action=login">ログイン</a>
-
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>

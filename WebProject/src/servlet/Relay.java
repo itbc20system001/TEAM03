@@ -25,6 +25,12 @@ public class Relay extends HttpServlet {
 			d.forward(request, response);
 		}
 
+		if(request.getParameter("action").equals("contact")) {
+
+			RequestDispatcher d= request.getRequestDispatcher("/WEB-INF/jsp/contact.jsp");
+			d.forward(request, response);
+		}
+
 		if(request.getParameter("action").equals("userPage")) {
 			HttpSession session = request.getSession();
 			if(session.getAttribute("user") == null) {

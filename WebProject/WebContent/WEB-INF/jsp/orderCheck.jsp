@@ -13,11 +13,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Tappy - ご注文内容確認</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h3>注文が新たに決定されました。</h3>
-  <h3>以下の注文でよろしければ【注文確定】のボタン、</h3>
-  <h3>追加でご注文される場合は【追加注文】のボタンを押してください。</h3>
+
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
+<h3>注文が新たに決定されました。</h3>
+<h3>以下の注文でよろしければ【注文確定】のボタン、</h3>
+<h3>追加でご注文される場合は【追加注文】のボタンを押してください。</h3>
+
 
   <!--
 <p>【イメージ：セッションスコープに入れられた注文内容を引っ張ってくる】</p>
@@ -49,6 +53,7 @@
   <p>
     金額：<%=odrb.getItem().getItemPrice()%>×<%=odrb.getPurchaseQuantity()%></p>
 
+
   <form method="POST" action="/tappy/OrderModify">
     <br>
     <input type="hidden" name="orderId" value="<%= i %>">
@@ -62,15 +67,17 @@
   %>
   <h4>合計金額：￥<%= NumberFormat.getNumberInstance().format(sum) %></h4>
 
+
   <form method="GET" action="/tappy/OrderComplete">
     <br>
     <input type="submit" name="name" value="注文確定">
   </form>
 
-  <form method="GET" action="/tappy/ItemList">
-    <br>
-    <input type="submit" name="name" value="追加注文">
-    <%-- 商品一覧ページmenu.jsp--%>
-  </form>
+
+<form method ="GET" action="/tappy/ItemList">
+<br><input type="submit" name="name" value="追加注文"> <%-- 商品一覧ページmenu.jsp--%>
+</form>
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
+
 </body>
 </html>

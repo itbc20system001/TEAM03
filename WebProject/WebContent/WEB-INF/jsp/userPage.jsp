@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
+ <div class="wrapper">
 <h1>マイページ</h1>
 
 <!-- リレーを介してmodifyUserInfoへ -->
@@ -19,8 +21,7 @@
 
 <% MemberBean user = (MemberBean)session.getAttribute("user");%>
 <h2>ユーザー情報</h2>
-
-<p>ID：<%=user.getUserId() %><br>
+<p style="text-align: left;">ID：<%=user.getUserId() %><br>
 姓：<%=user.getUserLName() %><br>
 名：<%=user.getUserFName() %><br>
 住所（都道府県）：<%=user.getPrefecture() %><br>
@@ -28,9 +29,10 @@
 電話番号：<%=user.getTel() %><br>
 メールアドレス：<%=user.getMail() %><br>
 </p>
+</div>
 
 
 
-
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>
