@@ -60,7 +60,8 @@ public class OrderCheck extends HttpServlet {
 
 		//再注文か、カスタマイズから飛んできたかを判断する
 		boolean isHistoryCheak = false;
-		if(request.getParameter("history").equals("再注文")) {
+
+		if(request.getParameter("history")!=null && request.getParameter("history").equals("再注文")) {
 			isHistoryCheak = true;
 		}
 		HttpSession session = request.getSession();
@@ -109,7 +110,7 @@ public class OrderCheck extends HttpServlet {
 
 
 		}
-		RequestDispatcher rdp = request.getRequestDispatcher("/tappy/OrderSearch");
+		RequestDispatcher rdp = request.getRequestDispatcher("/OrderSearch");
 		rdp.forward(request, response);
 	}
 

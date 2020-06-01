@@ -3,6 +3,12 @@ package model;
 import java.io.Serializable;
 
 public class OrderDetailRawBean implements Serializable{
+	@Override
+	public String toString() {
+		return "OrderDetailRawBean [item=" + item + ", purchaseQuantity=" + purchaseQuantity + ", drinkSize="
+				+ drinkSize + ", drinkSugar=" + drinkSugar + ", iceAmount=" + iceAmount + ", tapiokaKind=" + tapiokaKind
+				+ ", tapiokaAmount=" + tapiokaAmount + ", topping=" + topping + "]";
+	}
 	private ItemBean item;
 	private int purchaseQuantity;
 	private CustomizeBean drinkSize;
