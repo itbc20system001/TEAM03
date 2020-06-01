@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Tappy</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <h1>ログイン</h1>
 
 <% if (request.getAttribute("loginFailed") != null){ %>
@@ -26,6 +27,6 @@
   <a href="/tappy/Register">会員登録</a>
 
 </form>
-
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>

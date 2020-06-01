@@ -11,8 +11,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Tappy - ご注文内容確認</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
 <h3>注文が新たに決定されました。</h3>
 <h3>以下の注文でよろしければ【注文確定】のボタン、</h3>
 <h3>追加でご注文される場合は【追加注文】のボタンを押してください。</h3>
@@ -31,7 +33,7 @@
 
 	<p><%=odrb.getItem().getItem() %><br>【<%=odrb.getDrinkSize().getCustomize() %>・<%=odrb.getDrinkSugar().getCustomize() %>・<%=odrb.getIceAmount().getCustomize() %>・<%=odrb.getTapiokaKind().getCustomize() %>・<%=odrb.getTapiokaAmount().getCustomize() %>・トッピング：<%=odrb.getTopping().getCustomize() %>】</p>
 	<p>金額：<%=odrb.getItem().getItemPrice() %>×<%=odrb.getPurchaseQuantity() %></p>
-	
+
 	<form method ="GET" action="/tappy/OrderCheck">
 	<br><input type="submit" name="name" value="取り消す"><!--スコープから取り除くメソッド -->
 	<br><input type="submit" name="change" value="変更する">
@@ -46,5 +48,6 @@
 <form method ="GET" action="/tappy/ItemList">
 <br><input type="submit" name="name" value="追加注文"> <%-- 商品一覧ページmenu.jsp--%>
 </form>
+<jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
 </html>
