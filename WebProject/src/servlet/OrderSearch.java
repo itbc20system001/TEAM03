@@ -126,7 +126,6 @@ public class OrderSearch extends HttpServlet {
 					foundTopping
 					);
 
-			System.out.println(rawOrder);
 
 			rawOrderList.add(rawOrder);
 

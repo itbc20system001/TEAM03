@@ -18,7 +18,7 @@ table{margin:0 auto;}
 <jsp:include page="header.jsp"></jsp:include>
 
 
-<table width="400">
+<table width="200">
 <%
   List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
 
@@ -28,9 +28,9 @@ table{margin:0 auto;}
 %>    <tr height="50">
     <%} %>
 
-<td width="100" >
+<td width="50" >
     <a href="/tappy/Item?itemCd=<%=bean.getItemCd()%>">
-      <img src="<%=bean.getItemImageUrl() %>" style="height:450px; width:500px;">
+      <img src="<%=bean.getItemImageUrl() %>" style="height:250px; width:300px;">
     <p><strong><%= bean.getItem()%> </strong></p>
     </a>
 </td>
