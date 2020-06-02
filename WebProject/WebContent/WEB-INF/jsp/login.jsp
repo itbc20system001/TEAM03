@@ -29,6 +29,8 @@
   <a href="/tappy/Register">会員登録</a>
 
 </form>
+
+
 </div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
