@@ -19,7 +19,7 @@
 <% if (request.getAttribute("registerFailed") != null){ %>
 <div class="error">IDは既に使用済みです。別のIDを入力してください。</div>
 <%} %>
-<form action="/tappy/Register" method="post">
+<form action="/tappy/Register" method="post" >
 ユーザーID：<input type="text" name="user_id"><br>
 姓：<input type="text" name="user_l_name"><br>
 名：<input type="text" name="user_f_name"><br>
