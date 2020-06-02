@@ -16,7 +16,7 @@
 <% if (request.getAttribute("message") != null){%>
 <div class="error">パスワードに使用できるのは大小アルファベット、半角数字のみです</div>
 <%} %>
-<% if (request.getAttribute("mailfalse") != null){%>
+<% if (request.getAttribute("mailfailed") != null){%>
 <div class="error">メールアドレスが不適切です</div>
 <%} %>
 <% if (request.getAttribute("registerFailed") != null){ %>

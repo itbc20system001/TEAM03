@@ -48,36 +48,41 @@ public class Register extends HttpServlet {
 			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
 			request.setAttribute("message", true);
 			d.forward(request, response);
-		} else if((mail.matches("[^@]*"))||((!(mail.matches("[a-zA-Z0-9]*"))))){
-		//何か言ってた気がする
+			//メールアドレスの正規表現
+			//		} else if ((mail.matches("[^@]*")) || (!(mail.matches("[a-zA-Z0-9@]*")))) {
+		} else if ((!(mail.matches("[a-zA-Z0-9@]*"))) || (mail.matches("[^@]*"))) {
+//		} else if (mail.matches("[^@]*")) {　　＠がないとエラー
+
+//		} else if (!(mail.matches("[a-zA-Z0-9]*"))) {
 			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
-			request.setAttribute("mailfalse", true);
+			request.setAttribute("mailfailed", true);
 			d.forward(request, response);
+
 
 			//合っていれば登録処理へ
-		}else {
+		} else {
 
-		//MemberBeanに受け取った情報を詰める
-		MemberBean mb = new MemberBean(userId, userLName, userFname, password, prefecture, address, tel, mail);
+			//MemberBeanに受け取った情報を詰める
+			MemberBean mb = new MemberBean(userId, userLName, userFname, password, prefecture, address, tel, mail);
 
-		//RegisterLogic.javaのメソッドexecute（仮）を呼び出して、戻り値を受け取る
-		RegisterLogic rl = new RegisterLogic();
+			//RegisterLogic.javaのメソッドexecute（仮）を呼び出して、戻り値を受け取る
+			RegisterLogic rl = new RegisterLogic();
 
-		boolean b = rl.execute(mb);
+			boolean b = rl.execute(mb);
 
-		//OKなら会員登録完了画面へ、問題があればregister.jspに戻る
+			//OKなら会員登録完了画面へ、問題があればregister.jspに戻る
 			if (b == true) {
-			//これフォワードでなくリダイレクトしたほうがいいのでは…？
-			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/registerComplete.jsp");
-			d.forward(request, response);
+				//これフォワードでなくリダイレクトしたほうがいいのでは…？
+				RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/registerComplete.jsp");
+				d.forward(request, response);
 			} else {
-			//失敗したらもう一度登録画面へ
-			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
-			request.setAttribute("registerFailed", true);
-			d.forward(request, response);
+				//失敗したらもう一度登録画面へ
+				RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
+				request.setAttribute("registerFailed", true);
+				d.forward(request, response);
 			}
 
-	}
+		}
 	}
 
 }
