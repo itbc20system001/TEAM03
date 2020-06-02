@@ -12,6 +12,7 @@
         <li><a href="/tappy/relay?action=contact">お問い合わせ</a></li>
         <li><a href="/tappy/relay?action=userPage">My page</a></li>
         <li><a href="/tappy/relay?action=login">Login</a></li>
-    </ul><br>
+    </ul><br><br><br>
+    <p style="text-align:center;">© 株式会社タッピ</p>
 
   </footer>
