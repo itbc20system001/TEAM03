@@ -16,10 +16,13 @@
 <% if (request.getAttribute("message") != null){%>
 <div class="error">パスワードに使用できるのは大小アルファベット、半角数字のみです</div>
 <%} %>
+<% if (request.getAttribute("mailfalse") != null){%>
+<div class="error">メールアドレスが不適切です</div>
+<%} %>
 <% if (request.getAttribute("registerFailed") != null){ %>
 <div class="error">IDは既に使用済みです。別のIDを入力してください。</div>
 <%} %>
-<form action="/tappy/Register" method="post" >
+<form action="/tappy/Register" method="post">
 ユーザーID：<input type="text" name="user_id"><br>
 姓：<input type="text" name="user_l_name"><br>
 名：<input type="text" name="user_f_name"><br>
@@ -35,4 +38,5 @@
 </div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
+
 </html>
