@@ -19,18 +19,19 @@ import model.ModifyUserInfoLogic;
 public class ModifyUserInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ModifyUserInfo() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ModifyUserInfo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		//ユーザー情報変更ページに移動
 		request.getRequestDispatcher("/WEB-INF/modifyUserInfo.jsp").forward(request, response);
 	}
@@ -38,7 +39,8 @@ public class ModifyUserInfo extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
 
@@ -54,30 +56,30 @@ public class ModifyUserInfo extends HttpServlet {
 		String mail = request.getParameter("mail");
 
 		//メールアドレスの正規表現
-		if((mail.matches("[^@]*"))||((!(mail.matches("[-_a-zA-Z0-9@.]*"))))){
-  		request.setAttribute("mailfalse", true);
-		request.getRequestDispatcher("/WEB-INF/jsp/modifyUserInfo.jsp").forward(request, response);
-		}
-
-
-		MemberBean oldMember = (MemberBean)request.getSession().getAttribute("user");
-		MemberBean newUser = new MemberBean(oldMember.getUserId(),userLName,userFName,oldMember.getPassword(),prefecture,address,tel,mail);
-
-
-		//ユーザー変更が成功したかのフラグを受け取る
-		boolean isModifySucceeded =ModifyUserInfoLogic.modify(oldMember,newUser);
-
-		if(isModifySucceeded) {
-			//成功したら新しいユーザー情報をセッションスコープに保存
-			session.setAttribute("user", newUser);
-			//ユーザーページにリダイレクト
-			response.sendRedirect("/tappy/UserPage");
-		}
-		else {
-			//変更失敗フラグをリクエストスコープに格納
-			request.setAttribute("modifyFailed", true);
-			//失敗したらもう一度変更画面にフォワード
+		if ((mail.matches("[^@]*")) || ((!(mail.matches("[-_a-zA-Z0-9@.]*"))))) {
+			request.setAttribute("mailfalse", true);
 			request.getRequestDispatcher("/WEB-INF/jsp/modifyUserInfo.jsp").forward(request, response);
+		} else {
+
+			MemberBean oldMember = (MemberBean) request.getSession().getAttribute("user");
+			MemberBean newUser = new MemberBean(oldMember.getUserId(), userLName, userFName, oldMember.getPassword(),
+					prefecture, address, tel, mail);
+
+			//ユーザー変更が成功したかのフラグを受け取る
+			boolean isModifySucceeded = ModifyUserInfoLogic.modify(oldMember, newUser);
+
+			if (isModifySucceeded) {
+				//成功したら新しいユーザー情報をセッションスコープに保存
+				session.setAttribute("user", newUser);
+				//ユーザーページにリダイレクト
+				response.sendRedirect("/tappy/UserPage");
+			} else {
+				//変更失敗フラグをリクエストスコープに格納
+				request.setAttribute("modifyFailed", true);
+				//失敗したらもう一度変更画面にフォワード
+				request.getRequestDispatcher("/WEB-INF/jsp/modifyUserInfo.jsp").forward(request, response);
+			}
+
 		}
 	}
 
