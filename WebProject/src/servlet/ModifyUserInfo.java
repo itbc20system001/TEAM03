@@ -53,12 +53,12 @@ public class ModifyUserInfo extends HttpServlet {
 		String tel = request.getParameter("tel");
 		String mail = request.getParameter("mail");
 
-/*		//メールアドレスの正規表現
-		if((mail.matches("[^@]*"))||((!(mail.matches("[a-zA-Z0-9]*"))))){
+		//メールアドレスの正規表現
+		if((mail.matches("[^@]*"))||((!(mail.matches("[-_a-zA-Z0-9@.]*"))))){
   		request.setAttribute("mailfalse", true);
 		request.getRequestDispatcher("/WEB-INF/jsp/modifyUserInfo.jsp").forward(request, response);
 		}
-*/
+
 
 		MemberBean oldMember = (MemberBean)request.getSession().getAttribute("user");
 		MemberBean newUser = new MemberBean(oldMember.getUserId(),userLName,userFName,oldMember.getPassword(),prefecture,address,tel,mail);
