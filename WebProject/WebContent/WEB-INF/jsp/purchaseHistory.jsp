@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="model.PurchaseBean,java.util.List,java.util.ArrayList,model.ItemBean"%>
 
@@ -31,12 +32,12 @@ List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
       	for (PurchaseBean i : phList) {
       %>
       <tr>
-        <td style="display:flex;">
+        <td>
           <%
         	for(ItemBean j: itemList){
-                  if(i.getItemCd() == j.getItemCd()){ %> <a href="/tappy/Item?itemCd=<%=j.getItemCd()%>"> <img src="<%=j.getItemImageUrl() %>" style="width:300px; height:250px;">
+                  if(i.getItemCd() == j.getItemCd()){ %> <a href="/tappy/Item?itemCd=<%=j.getItemCd()%>"> <img src="<%=j.getItemImageUrl() %>">
         </a>
-          <p style="padding-left:20px; padding-right:20px; "><%= j.getItemText()%></p> <%
+          <p><%= j.getItemText()%></p> <%
                   }
                 }
         %>
@@ -47,7 +48,7 @@ List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
         	}
         %>
       </tr>
-    </table><br>
+    </table>
     <% if(!phList.isEmpty()) {%>
       <input type="submit" name="history" value="再注文">
     <%} %>
@@ -58,7 +59,7 @@ List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
 
 <script>
 	function check(){
-	console.log("fooooooo");
+
 	  for(var e of document.forms[0]){
 	    if(e.type == "checkbox"){
 	      if(e.checked){
@@ -72,4 +73,5 @@ List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
 	}
 </script>
 </body>
+
 </html>

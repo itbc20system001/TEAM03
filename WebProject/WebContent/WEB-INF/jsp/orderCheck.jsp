@@ -17,6 +17,12 @@
 <body>
   <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
   <div class="wrapper">
+<%-- 注文内容が空なら別の内容（購入ボタン）を表示する --%>
+<% if(rawOrderList.isEmpty()) {%>
+  <h3>注文内容がありません。</h3>
+  <h3><a href="/tappy/ItemList">商品一覧</a>から商品をご注文ください。</h3>
+
+<%}else{ %>
     <h3>注文が新たに決定されました。</h3>
     <h3>以下の注文でよろしければ【注文確定】のボタン、</h3>
     <h3>追加でご注文される場合は【追加注文】のボタンを押してください。</h3>
@@ -81,6 +87,7 @@
       <br> <input type="submit" name="name" value="追加注文">
       <%-- 商品一覧ページmenu.jsp--%>
     </form>
+    <%} %>
   </div>
   <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
