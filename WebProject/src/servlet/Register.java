@@ -48,12 +48,11 @@ public class Register extends HttpServlet {
 			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
 			request.setAttribute("message", true);
 			d.forward(request, response);
-/*		} else if(){
+		} else if((mail.matches("[^@]*"))||((!(mail.matches("[a-zA-Z0-9]*"))))){
 		//何か言ってた気がする
 			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
-			String message="何らかの処理";
-			request.setAttribute("message", message);
-			d.forward(request, response);*/
+			request.setAttribute("mailfalse", true);
+			d.forward(request, response);
 
 			//合っていれば登録処理へ
 		}else {
