@@ -43,11 +43,13 @@ public class InitializeLogic {
 
 	public static void initOrderDetail(HttpServletRequest request, HttpServletResponse response) {
 
-		request.getSession().setAttribute("orderList",new ArrayList<OrderDetailBean>());
+		if (request.getSession().getAttribute("orderList") == null) {
+			request.getSession().setAttribute("orderList", new ArrayList<OrderDetailBean>());
+		}
 	}
 
 	public static void init(HttpServletRequest request, HttpServletResponse response) {
-		initCustomize(request,response);
+		initCustomize(request, response);
 		initOrderDetail(request, response);
 	}
 }
