@@ -19,11 +19,8 @@
 
       </div>
       <div class="menu-text">
-        <h1><%=item.getItem()%></h1>
+        <h1><%=item.getItem()%>    &yen;<%=item.getItemPrice()%></h1>
         <p>
-          商品価格：&yen;<%=item.getItemPrice()%></p>
-        <p>
-          商品説明：
           <%=item.getItemText()%></p>
         <!-- Customizeサーブレットへ値を投げる-->
         <form action="/tappy/Customize?itemCd=<%=item.getItemCd()%>" method="post">

@@ -77,6 +77,23 @@
     <h4>
       合計金額：￥<%=NumberFormat.getNumberInstance().format(sum)%></h4>
 
+		<script type="text/javascript">
+		window.onload = function () {
+		var date = new Date();
+
+		date.setDate(date.getDate());/*今日の日付*/
+		var yyyy = date.getFullYear();
+		var mm = ("0"+(date.getMonth()+1)).slice(-2);
+		var dd = ("0"+date.getDate()).slice(-2);
+
+		document.getElementById("today").value=yyyy+'-'+mm+'-'+dd;
+		document.getElementById("today").min=yyyy+'-'+mm+'-'+dd;/*今日より前は選択できません*/
+		}
+		</script>
+
+		<p>配達日を指定してください：</p>
+		<p><input type="date" name="today" id="today" required></p>
+
 
     <form method="GET" action="/tappy/OrderComplete">
       <br> <input type="submit" name="name" value="注文確定">
