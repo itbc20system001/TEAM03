@@ -20,7 +20,7 @@
 		<option  value="company">企業について</option>
 		<option  value="other">その他</option>
 	</select>
-	</div>
+	</div><br>
 	<div>
 		Tappyをご利用いただくのは何回目ですか？<br>
 		<label><input type="radio" name="exp" value="try" checked>初めて</label>
@@ -28,7 +28,7 @@
 		<label><input type="radio" name="exp" value="some"       >4～6回</label>
 		<label><input type="radio" name="exp" value="several"    >7～10回</label>
 		<label><input type="radio" name="exp" value="most"       >10回より多い</label>
-	</div>
+	</div><br>
 	<div>
 		Tappyをお知りになったきっかけは何ですか？<br>
 		<label><input type="checkbox" name="cause" value="sns"      >SNSで</label>
@@ -36,10 +36,10 @@
 		<label><input type="checkbox" name="cause" value="web"      >Webサイトから</label>
 		<label><input type="checkbox" name="cause" value="radio"    >ラジオで</label>
 		<label><input type="checkbox" name="cause" value="other"    >その他</label>
-	</div>
+	</div><br>
 	<div>
-		<label>お問い合わせの内容<br><textarea name="message"></textarea></label>
-	</div>
+		<label>お問い合わせの内容<br><textarea name="message" style="resize: none; width:400px; height:100px;"></textarea></label>
+	</div><br>
 	<div>
 		<input type="submit" name="submit" value="送信">
 	</div>
