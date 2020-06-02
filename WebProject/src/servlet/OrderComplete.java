@@ -26,28 +26,33 @@ public class OrderComplete extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
 
 		//注文内容一覧をセッションスコープから取得
-		List<OrderDetailBean> orderList =  (List<OrderDetailBean>)session.getAttribute("orderList");
+		List<OrderDetailBean> orderList = (List<OrderDetailBean>) session.getAttribute("orderList");
 
-		request.setAttribute("recieveCode",  MakeRecieveCode.makeCode(orderList));
+		//空注文ならトップページにリダイレクト
+		if (orderList.isEmpty()) {
+			response.sendRedirect("/tappy/");
+		} else {
 
-		//ログインしているユーザーを取得
-		MemberBean member = (MemberBean)session.getAttribute("user");
+			//商品受け取りコードを生成
+			request.setAttribute("recieveCode", MakeRecieveCode.makeCode(orderList));
 
-		//各注文内容を購入履歴に保存
-		orderList.forEach(od -> OrderCompleteLogic.leaveOrder(od, member));
+			//ログインしているユーザーを取得
+			MemberBean member = (MemberBean) session.getAttribute("user");
 
-		//履歴に保存し終わったら注文内容一覧を空にする
-		session.setAttribute("orderList", new ArrayList<OrderDetailBean>());
+			//各注文内容を購入履歴に保存
+			orderList.forEach(od -> OrderCompleteLogic.leaveOrder(od, member));
 
-		//注文完了画面にフォワード
-		request.getRequestDispatcher("/WEB-INF/jsp/orderComplete.jsp").forward(request, response);
+			//履歴に保存し終わったら注文内容一覧を空にする
+			session.setAttribute("orderList", new ArrayList<OrderDetailBean>());
 
-
+			//注文完了画面にフォワード
+			request.getRequestDispatcher("/WEB-INF/jsp/orderComplete.jsp").forward(request, response);
+		}
 	}
-
 }

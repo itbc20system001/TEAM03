@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="model.PurchaseBean,java.util.List,java.util.ArrayList,model.ItemBean"%>
 
@@ -58,7 +59,7 @@ List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
 
 <script>
 	function check(){
-	console.log("fooooooo");
+
 	  for(var e of document.forms[0]){
 	    if(e.type == "checkbox"){
 	      if(e.checked){
@@ -72,4 +73,5 @@ List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
 	}
 </script>
 </body>
+
 </html>

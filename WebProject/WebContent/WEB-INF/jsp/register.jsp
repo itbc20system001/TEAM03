@@ -22,7 +22,7 @@
 <% if (request.getAttribute("registerFailed") != null){ %>
 <div class="error">IDは既に使用済みです。別のIDを入力してください。</div>
 <%} %>
-<form action="/tappy/Register" method="post">
+<form action="/tappy/Register" method="post" onsubmit="return check();">
 ユーザーID：<input type="text" name="user_id"><br>
 姓：<input type="text" name="user_l_name"><br>
 名：<input type="text" name="user_f_name"><br>
@@ -35,6 +35,25 @@
 
 
 </form>
+
+<script>
+  function check(){
+
+    for(var e of document.forms[0]){
+
+      if(e.type == "text" || e.type == "password"){
+        if(e.value == ""){
+          alert("入力されていない項目が存在します");
+          return false;
+        }
+      }
+
+    }
+
+    return true;
+  }
+</script>
+
 </div>
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>

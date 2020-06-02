@@ -50,10 +50,8 @@ public class Register extends HttpServlet {
 			d.forward(request, response);
 			//メールアドレスの正規表現
 			//		} else if ((mail.matches("[^@]*")) || (!(mail.matches("[a-zA-Z0-9@]*")))) {
-		} else if ((!(mail.matches("[a-zA-Z0-9@]*"))) || (mail.matches("[^@]*"))) {
-//		} else if (mail.matches("[^@]*")) {　　＠がないとエラー
-
-//		} else if (!(mail.matches("[a-zA-Z0-9]*"))) {
+//		} else if ((!(mail.matches("[a-zA-Z0-9@]*"))) || (mail.matches("[^@]*"))) {
+		} else if ((!(mail.matches("[-_a-zA-Z0-9@.]*")))|| (mail.matches("[^@]*"))) {
 			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
 			request.setAttribute("mailfailed", true);
 			d.forward(request, response);
