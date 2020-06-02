@@ -48,7 +48,7 @@
     <!-- <img src="TapiocaBread.jpg" alt="タピオカドリンク・サーモンピンク味"> -->
     <div class="menu-item">
       <div class="menu-photo">
-        <img src="<%=odrb.getItem().getItemImageUrl()%>"><br>
+        <img src="<%=odrb.getItem().getItemImageUrl()%>" style="width:550px"><br>
       </div>
       <div class="menu-text">
         <h2><%=odrb.getItem().getItem()%></h2>
