@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 public class Derivery extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		RequestDispatcher rdp = request.getRequestDispatcher("WEB-INF/jsp/derivery.jsp");
 		rdp.forward(request, response);
 	}
