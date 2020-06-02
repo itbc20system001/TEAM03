@@ -16,8 +16,13 @@
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
  <div class="wrapper">
 <h1>ユーザー情報の変更</h1>
+
+<% if (request.getAttribute("mailfalse") != null){%>
+<div class="error">メールアドレスが不適切です</div>
+<%} %>
+
 <% if(request.getAttribute("modifyFailed") != null) {%>
-<h3>ユーザー情報の変更に失敗</h3>
+<div class="error">ユーザー情報の変更に失敗</div>
 <%} %>
 <!-- 各テキストフィールドには現在のユーザー情報をデフォルトで入れたい（済） -->
 <form method="post" action="/tappy/ModifyUserInfo">
