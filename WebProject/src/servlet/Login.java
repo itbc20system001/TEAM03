@@ -20,49 +20,52 @@ import model.MemberBean;
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Login() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public Login() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user") != null) {
+			response.sendRedirect("/tappy/relay?action=userPage");
+		} else {
+			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
 
-		MemberBean loginUser =  LoginLogic.login(
+		MemberBean loginUser = LoginLogic.login(
 				request.getParameter("user_id"),
 				request.getParameter("password"));
 
-
-		if(loginUser != null) {
+		if (loginUser != null) {
 			//ログイン成功したら・・・
 			//ログインユーザーをセッションスコープに入れる
 			request.getSession().setAttribute("user", loginUser);
 			InitializeLogic.init(request, response);
 			//トップページにリダイレクト
-			if(session.getAttribute("isJumpFromCustomize") == null) {
+			if (session.getAttribute("isJumpFromCustomize") == null) {
 				response.sendRedirect("/tappy/");
-			} else{
+			} else {
 				response.sendRedirect("/tappy/OrderCheck");
 			}
 
-		}
-		else {
+		} else {
 			//失敗したら・・・
 			//失敗フラグをリクエストスコープに入れる
 			request.setAttribute("loginFailed", true);
@@ -70,7 +73,5 @@ public class Login extends HttpServlet {
 			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		}
 	}
-
-
 
 }

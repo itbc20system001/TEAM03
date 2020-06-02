@@ -23,12 +23,14 @@ public class InitializeLogic {
 		List<CustomizeBean> toppingList = new ArrayList<>();
 
 		//ListにDBの値を格納　引数はハードコーディングしか無理かな？
-		iceList = customizeLogic.makeCustomizeList("ice_amount", "ice_amount_cd", "mst_ice_amount");
-		drinkSizeList = customizeLogic.makeCustomizeList("drink_size", "drink_size_cd", "mst_drink_size");
-		tapiokaAmountList = customizeLogic.makeCustomizeList("tapioka_amount", "tapioka_amount_cd", "mst_tapioka_amount");
-		tapiokaTypeList = customizeLogic.makeCustomizeList("tapioka_kind", "tapioka_kind_cd", "mst_tapioka_kind");
-		sugarList = customizeLogic.makeCustomizeList("drink_sugar", "drink_sugar_cd", "mst_drink_sugar");
-		toppingList = customizeLogic.makeCustomizeList("topping", "topping_cd", "mst_topping");
+		iceList = customizeLogic.makeCustomizeList(PassName.ice_amount);
+		drinkSizeList = customizeLogic.makeCustomizeList(PassName.drink_size);
+		tapiokaAmountList = customizeLogic.makeCustomizeList(PassName.tapioka_amount);
+		tapiokaTypeList = customizeLogic.makeCustomizeList(PassName.tapioka_kind);
+		sugarList = customizeLogic.makeCustomizeList(PassName.drink_sugar);
+		toppingList = customizeLogic.makeCustomizeList(PassName.topping);
+
+		System.out.println(iceList);
 
 		session.setAttribute("iceList", iceList);
 		session.setAttribute("drinkSizeList", drinkSizeList);

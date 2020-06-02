@@ -4,17 +4,18 @@ import java.util.List;
 import java.util.Map;
 
 import model.CustomizeBean;
+import model.PassName;
 
 public class CustomizeDAO extends DAO<CustomizeBean> {
 	String customizeCalamName;
 	String customizeCodeName;
 	String tableName;
 
-	public CustomizeDAO(String customizeCalamName,String CustomizeCodeName,String tableName) {
+	public CustomizeDAO(PassName p) {
 		// TODO 自動生成されたコンストラクター・スタブ
-		this.customizeCalamName = customizeCalamName;
-		this.customizeCodeName = CustomizeCodeName;
-		this.tableName = tableName;
+		this.customizeCalamName = p.name();
+		this.customizeCodeName = p.getCodeName();
+		this.tableName = p.getTableName();
 	}
 
 	public CustomizeDAO() {

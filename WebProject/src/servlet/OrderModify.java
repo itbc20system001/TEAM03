@@ -30,12 +30,8 @@ public class OrderModify extends HttpServlet {
 
 		String modify = (String)request.getParameter("modify");
 
-		System.out.println(request.getParameter("orderId"));
-
 		List<OrderDetailBean> orderList = (List<OrderDetailBean>) session.getAttribute("orderList");
 		int orderId = Integer.parseInt(request.getParameter("orderId"));
-
-		System.out.println(modify);
 
 		if(modify.equals("取り消す")) {
 
