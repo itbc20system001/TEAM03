@@ -19,11 +19,9 @@ List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
 <jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
  <div class="wrapper">
   <h1>購入履歴画面</h1>
-  ユーザーIDとかを取ってきて表示
-  <br> 再注文とかするボタンをつけるのがよさげ？
-  <br> どこまで表示するかはちょっと考えるかな
+
   <br>
-  <form action="/tappy/OrderCheck" method="post">
+  <form action="/tappy/OrderCheck" method="post" onsubmit="return check();">
     <table border="1">
       <tr>
         <th>注文内容</th>
@@ -50,11 +48,28 @@ List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
         %>
       </tr>
     </table>
-
-    <input type="submit" name="history" value="再注文">
+    <% if(!phList.isEmpty()) {%>
+      <input type="submit" name="history" value="再注文">
+    <%} %>
 
   </form>
   </div>
   <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
+
+<script>
+	function check(){
+	console.log("fooooooo");
+	  for(var e of document.forms[0]){
+	    if(e.type == "checkbox"){
+	      if(e.checked){
+	        return true;
+	      }
+	    }
+
+	  }
+	  alert("チェックがされていません");
+	  return false;
+	}
+</script>
 </body>
 </html>
