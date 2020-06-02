@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.MakeRecieveCode;
 import model.MemberBean;
 import model.OrderCompleteLogic;
 import model.OrderDetailBean;
@@ -32,7 +33,7 @@ public class OrderComplete extends HttpServlet {
 		//注文内容一覧をセッションスコープから取得
 		List<OrderDetailBean> orderList =  (List<OrderDetailBean>)session.getAttribute("orderList");
 
-
+		request.setAttribute("recieveCode",  MakeRecieveCode.makeCode(orderList));
 
 		//ログインしているユーザーを取得
 		MemberBean member = (MemberBean)session.getAttribute("user");
