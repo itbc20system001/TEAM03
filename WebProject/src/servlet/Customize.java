@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.InitializeLogic;
 import model.ItemBean;
 
 /**
@@ -49,6 +50,11 @@ public class Customize extends HttpServlet {
 
 		HttpSession session = request.getSession();
 
+
+		//ログインしていない場合カスタマイズ情報が得られていないためここで得る
+		if(session.getAttribute("user") == null) {
+			InitializeLogic.initCustomize(request, response);
+		}
 
 		List<ItemBean> itemList = (List<ItemBean>) session.getAttribute("itemList");
 		//【変更】セッションスコープから情報を取ってくる
