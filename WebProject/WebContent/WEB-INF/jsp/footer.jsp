@@ -11,7 +11,12 @@
         <li><a href="/tappy/relay?action=menu">Menu</a></li>
         <li><a href="/tappy/relay?action=contact">お問い合わせ</a></li>
         <li><a href="/tappy/relay?action=userPage">My page</a></li>
-        <li><a href="/tappy/relay?action=login">Login</a></li>
+        <%if(session.getAttribute("user")==null){ %>
+              <li><a href="/tappy/relay?action=login">Login</a><li>
+
+            <%}else{ %>
+              <li><a href="/tappy/relay?action=logout">Logout</a></li>
+              <%} %>
     </ul><br><br><br>
     <p style="text-align:center;">© 株式会社タッピ</p>
 
