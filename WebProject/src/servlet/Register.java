@@ -43,22 +43,32 @@ public class Register extends HttpServlet {
 
 		int passwordSize = password.length();
 
+
+
+		boolean message = false;
+		boolean mailfailed = false;
 		//パスワードの正規表現
 		if (!(password.matches("[a-zA-Z0-9]*"))) {
-			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
-			request.setAttribute("message", true);
-			d.forward(request, response);
+			message = true;
+			request.setAttribute("message", message);
+
 			//メールアドレスの正規表現
 			//		} else if ((mail.matches("[^@]*")) || (!(mail.matches("[a-zA-Z0-9@]*")))) {
 //		} else if ((!(mail.matches("[a-zA-Z0-9@]*"))) || (mail.matches("[^@]*"))) {
-		} else if ((!(mail.matches("[-_a-zA-Z0-9@.]*")))|| (mail.matches("[^@]*"))) {
-			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
-			request.setAttribute("mailfailed", true);
-			d.forward(request, response);
-
+		}
+		if ((!(mail.matches("[-_a-zA-Z0-9@.]*")))|| (mail.matches("[^@]*"))) {
+			mailfailed = true;
+			request.setAttribute("mailfailed", mailfailed);
 
 			//合っていれば登録処理へ
-		} else {
+		}
+
+		if(message || mailfailed) {
+			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/register.jsp");
+			d.forward(request, response);
+		}
+
+		else {
 
 			//MemberBeanに受け取った情報を詰める
 			MemberBean mb = new MemberBean(userId, userLName, userFname, password, prefecture, address, tel, mail);
