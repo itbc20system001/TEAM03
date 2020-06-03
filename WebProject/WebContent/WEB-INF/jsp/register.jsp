@@ -26,7 +26,8 @@
 ユーザーID：<br><input type="text" name="user_id"><br>
 姓：<br><input type="text" name="user_l_name"><br>
 名：<br><input type="text" name="user_f_name"><br>
-パスワード：<br><input type="password" name="password"><br>
+パスワード： ※パスワードに使用できるのは、半角英数字のみです<br>
+<input type="password" name="password"><br>
 住所（都道府県）：<br><input type="text" name="prefecture"><br>
 住所（市以下）：<br><input type="text" name="address"><br>
 電話番号：<br><input type="text" name="tel"><br>
