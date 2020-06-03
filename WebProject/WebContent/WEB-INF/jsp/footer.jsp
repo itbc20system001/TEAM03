@@ -15,6 +15,7 @@
               <li><a href="/tappy/relay?action=login">Login</a><li>
 
             <%}else{ %>
+              <li><a href="/tappy/relay?action=orderCheck">注文内容</a></li>
               <li><a href="/tappy/relay?action=logout">Logout</a></li>
               <%} %>
     </ul><br><br><br>
