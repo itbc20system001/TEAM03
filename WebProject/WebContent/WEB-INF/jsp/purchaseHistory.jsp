@@ -58,7 +58,7 @@ List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
 
 <script>
 	function check(){
-	console.log("fooooooo");
+
 	  for(var e of document.forms[0]){
 	    if(e.type == "checkbox"){
 	      if(e.checked){
