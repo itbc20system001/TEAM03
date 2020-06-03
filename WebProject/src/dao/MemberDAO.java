@@ -79,8 +79,6 @@ public class MemberDAO extends DAO<MemberBean> {
 
 	public boolean modifyMember(MemberBean oldMember,MemberBean newMember) {
 		//変更先のユーザーIDが衝突しているか判定
-		System.out.println(oldMember.getUserId());
-		System.out.println(newMember.getUserId());
 		boolean isIdConflicted = ! executeQuery(conn -> {
 			PreparedStatement pStmt = conn.prepareStatement("SELECT * FROM member WHERE user_id = ?");
 			pStmt.setString(1, newMember.getUserId());
