@@ -14,7 +14,7 @@
   <div style="text-align: center;">
     <img src="/tappy/img/index1.jpg">
   </div>
-
+< <div class="wrapper">
   <h1>TAPPYへようこそ！</h1>
   <p>TAPPY（タッピー）は、タピオカドリンク販売サイトです。
 サイト内でご注文した商品を、
@@ -23,7 +23,7 @@
 
   <p>当店自慢のモチモチのタピオカを、ご自宅でどうぞお楽しみください！<br>
 ※配達時、現金でのお支払いとなります。
-  </p>
+  </p></div>
 
 <jsp:include page="/WEB-INF/jsp/footer.jsp"></jsp:include>
 </body>
