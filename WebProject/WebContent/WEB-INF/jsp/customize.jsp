@@ -31,7 +31,7 @@
     <div class="menu-text">
 
   選択された商品：<%=item.getItem()%>
-  <br> 画面左側はドリンクの画像で右側でトッピング選択するとかがいいかな？
+
   <br> ドリンクのサイズ
   <br>
   <form action="/tappy/OrderCheck?itemCd=<%= request.getParameter("itemCd") %>" method="post">
