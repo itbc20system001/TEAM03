@@ -49,7 +49,7 @@ public class OrderSearch extends HttpServlet {
 		List<OrderDetailBean> orderList = (List<OrderDetailBean>) session.getAttribute("orderList");
 
 		List<OrderDetailRawBean> rawOrderList = new ArrayList<>();
-		orderList.forEach(System.out::println);
+
 
 
 
@@ -131,7 +131,7 @@ public class OrderSearch extends HttpServlet {
 
 		}
 
-		rawOrderList.forEach(System.out::println);
+
 
 		session.setAttribute("rawOrderList", rawOrderList);
 

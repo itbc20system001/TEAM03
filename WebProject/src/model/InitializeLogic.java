@@ -30,7 +30,6 @@ public class InitializeLogic {
 		sugarList = customizeLogic.makeCustomizeList(PassName.drink_sugar);
 		toppingList = customizeLogic.makeCustomizeList(PassName.topping);
 
-		System.out.println(iceList);
 
 		session.setAttribute("iceList", iceList);
 		session.setAttribute("drinkSizeList", drinkSizeList);

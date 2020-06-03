@@ -48,7 +48,7 @@
     		}
 
     		sum += odrb.getItem().getItemPrice() * odrb.getPurchaseQuantity();
-    		System.out.println(odrb.getId());
+
     %>
 
     <!-- <img src="TapiocaBread.jpg" alt="タピオカドリンク・サーモンピンク味"> -->
