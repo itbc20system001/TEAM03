@@ -18,6 +18,6 @@
               <li><a href="/tappy/relay?action=logout">Logout</a></li>
               <%} %>
     </ul><br><br><br>
-    <p style="text-align:center;">© 株式会社タッピ</p>
+    <p style="text-align:center; margin-bottom:50px;">© 株式会社タッピ</p>
 
   </footer>
