@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="model.PurchaseBean,java.util.List,java.util.ArrayList,model.ItemBean"%>
 
@@ -32,12 +31,12 @@ List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
       	for (PurchaseBean i : phList) {
       %>
       <tr>
-        <td>
+        <td style="display:flex;">
           <%
         	for(ItemBean j: itemList){
-                  if(i.getItemCd() == j.getItemCd()){ %> <a href="/tappy/Item?itemCd=<%=j.getItemCd()%>"> <img src="<%=j.getItemImageUrl() %>">
+                  if(i.getItemCd() == j.getItemCd()){ %> <a href="/tappy/Item?itemCd=<%=j.getItemCd()%>"> <img src="<%=j.getItemImageUrl() %>" style="width:300px; height:250px;">
         </a>
-          <p><%= j.getItemText()%></p> <%
+          <p style="padding-left:20px; padding-right:20px; "><%= j.getItemText()%></p> <%
                   }
                 }
         %>
@@ -48,7 +47,7 @@ List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
         	}
         %>
       </tr>
-    </table>
+    </table><br>
     <% if(!phList.isEmpty()) {%>
       <input type="submit" name="history" value="再注文">
     <%} %>
@@ -73,5 +72,4 @@ List<ItemBean> itemList =(List<ItemBean>) session.getAttribute("itemList");
 	}
 </script>
 </body>
-
 </html>
