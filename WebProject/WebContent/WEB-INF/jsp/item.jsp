@@ -19,7 +19,7 @@
 
       </div>
       <div class="menu-text">
-        <h1><%=item.getItem()%>    &yen;<%=item.getItemPrice()%></h1>
+        <h1><%=item.getItem()%>　　&yen;<%=item.getItemPrice()%></h1>
         <p>
           <%=item.getItemText()%></p>
         <!-- Customizeサーブレットへ値を投げる-->
